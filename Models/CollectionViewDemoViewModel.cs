@@ -31,6 +31,7 @@ namespace TutorialMaUI.Models
         public CollectionViewDemoViewModel()
         {
             Countries = GetCountries();
+            var x = 1;
         }
 
         private List<Country> GetCountries()
