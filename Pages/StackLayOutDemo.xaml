@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorialMaUI.Pages.StackLayOutDemo"
+             Title="Stack LayOut Demo">
+    <StackLayout Spacing="10" Padding="20" Orientation="Vertical" VerticalOptions="End"  >
+        <Label Text=".NET MAUI" TextColor="red" FontSize="25" FontAttributes="Bold" Margin="30" HorizontalOptions="Center"></Label>
+        <Button x:Name="gridButton" Text="Grid LayOut" Clicked="gridButton_Clicked"></Button>
+        <Button x:Name="flexLayOut" Text="Flex LayOut" Clicked="gridButtonFlex_Clicked"></Button>
+        <Button x:Name="collection" Text="Collection" Clicked="collection_LayOut"></Button>
+    </StackLayout>
+</ContentPage> 

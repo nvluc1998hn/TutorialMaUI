@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorialMaUI.Controls.CollectionViewDemo"
+             Title="CollectionViewDemo">
+    
+    <StackLayout Padding="20">
+        <Label Text="Select a Country" FontSize="24" HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Countries}" SelectionMode="Single" SelectedItem="{Binding SelectedCountry}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image Source="{Binding FlagUrl}" WidthRequest="40" HeightRequest="30" />
+                        <Label Text="{Binding CountryName}" FontSize="18" VerticalOptions="Center" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="Selected Country:"
+               FontSize="18"
+               HorizontalOptions="Center"
+               Margin="10,20,0,0" />
+        <Label Text="{Binding SelectedCountry.CountryName}"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+    </StackLayout>
+    
+</ContentPage>
