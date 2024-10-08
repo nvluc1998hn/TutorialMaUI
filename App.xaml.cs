@@ -1,4 +1,5 @@
-﻿using TutorialMaUI.Pages;
+﻿using System.Globalization;
+using TutorialMaUI.Pages;
 
 namespace TutorialMaUI
 {
@@ -8,9 +9,13 @@ namespace TutorialMaUI
         {
             InitializeComponent();
 
+           // MainPage = new AppShell();
+
             var navigationPage = new NavigationPage(new StackLayOutDemo());
 
             MainPage = navigationPage;
+
+            CultureInfo.CurrentUICulture = new CultureInfo("");
         }
     }
 }

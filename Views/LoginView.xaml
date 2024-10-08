@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorialMaUI.Views.LoginView"
+             xmlns:string="clr-namespace:TutorialMaUI.Resources.Language"
+             Title="Login View">
+    <ContentPage.Resources>
+        <x:Array x:Key="GenderOptions" Type="{x:Type x:String}">
+            <x:String>Nam</x:String>
+            <x:String>Nữ</x:String>
+        </x:Array>
+    </ContentPage.Resources>
+    
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <!-- Image row -->
+            <RowDefinition Height="Auto"/>
+            <!-- Label row -->
+        </Grid.RowDefinitions>
+
+        <!-- Image filling the first row -->
+        <Image Grid.Row="0" Source="Resources/Images/education.jpeg" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+
+        <!-- Picker aligned to the top-right corner of the first row -->
+        <Picker Grid.Row="0" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="150" ItemsSource="{StaticResource GenderOptions}"/>
+
+        <!-- Welcome label positioned below the image -->
+        <FlexLayout Grid.Row="1">
+            <HorizontalStackLayout>
+                <Label Text="Welcome" HorizontalOptions="Center" VerticalOptions="End" Margin="0,10,0,0"/>
+                <Label Text="{x:Static string:AppResources.UserName}" HorizontalOptions="Center" VerticalOptions="End" Margin="0,10,0,0"/>
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+    </Grid>
+ 
+</ContentPage>

@@ -1,4 +1,5 @@
 using TutorialMaUI.Controls;
+using TutorialMaUI.Views;
 
 namespace TutorialMaUI.Pages;
 
@@ -22,5 +23,10 @@ public partial class StackLayOutDemo : ContentPage
     private void collection_LayOut(object sender, EventArgs e)
     {
         Navigation.PushAsync(new CollectionViewDemo());
+    }
+
+    private void loginView_Click(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new LoginView());
     }
 }

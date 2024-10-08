@@ -4,12 +4,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TutorialMaUI"
+    xmlns:views="clr-namespace:TutorialMaUI.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="TutorialMaUI">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <ShellContent Title="Home"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" >
+        </ShellContent>
+        
+        <ShellContent Title="User"
+                      ContentTemplate="{DataTemplate views:UserListDetail}"
+                      Route="UserListDetail">
+            
+        </ShellContent>
+        
+    </TabBar>
+    
 </Shell>

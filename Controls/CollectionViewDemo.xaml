@@ -2,30 +2,108 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TutorialMaUI.Controls.CollectionViewDemo"
+             xmlns:vm="clr-namespace:TutorialMaUI.ViewModel"
+             x:DataType="vm:UserViewModel"
              Title="CollectionViewDemo">
-    
-    <StackLayout Padding="20">
-        <Label Text="Select a Country" FontSize="24" HorizontalOptions="Center" />
 
-        <CollectionView ItemsSource="{Binding Countries}" SelectionMode="Single" SelectedItem="{Binding SelectedCountry}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Image Source="{Binding FlagUrl}" WidthRequest="40" HeightRequest="30" />
-                        <Label Text="{Binding CountryName}" FontSize="18" VerticalOptions="Center" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+            <!-- Label cho User Name -->
+            <Label Grid.Row="0" Style="{StaticResource Grid.Label}"
+       Text="User Name :">
+            </Label>
 
-        <Label Text="Selected Country:"
-               FontSize="18"
-               HorizontalOptions="Center"
-               Margin="10,20,0,0" />
-        <Label Text="{Binding SelectedCountry.CountryName}"
-               FontSize="24"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-    </StackLayout>
-    
+            <!-- Entry cho nhập tên người dùng -->
+            <Entry Grid.Row="0" Grid.Column="1" Placeholder="Nhập tên người dùng" Text="{Binding UserObject.LastName}"
+       VerticalOptions="Center">
+            </Entry>
+
+            <!-- Label cho SĐT -->
+            <Label  Grid.Row="1" Style="{StaticResource Grid.Label}"
+                Text="SĐT :">
+            </Label>
+
+            <!-- Entry cho SĐT -->
+            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Nhập số điện thoại" Keyboard="Telephone" MaxLength="10"
+     VerticalOptions="Center" Text="{Binding UserObject.Phone}">
+            </Entry>
+
+            <!--kiểu lỗi-->
+            <Label  Grid.Row="2" Style="{StaticResource Grid.Label}"
+        Text="Kiểu lỗi :">
+            </Label>
+
+            <FlexLayout  Grid.Row="2" Grid.Column="1" >
+
+                <Label Margin="5" Style="{StaticResource Grid.Label}">401</Label>
+                <CheckBox IsChecked="{Binding UserObject.IsEnrolledIn401}"></CheckBox>
+
+                <Label Style="{StaticResource Grid.Label}">404</Label>
+                <CheckBox IsChecked="{Binding UserObject.IsEnrolledIn404}"></CheckBox>
+
+            </FlexLayout>
+
+            <!--Switch Button-->
+
+            <Label Grid.Row="3"  Style="{StaticResource Grid.Label}"
+     Text="Still Employed? :" />
+            <Switch Grid.Row="3" HorizontalOptions="Start"
+      Grid.Column="1"
+      IsToggled="{Binding UserObject.IsActive}" />
+
+            <!--Checkbox-->
+            <Label  Grid.Row="4" Style="{StaticResource Grid.Label}"
+     Text="Loại nhân viên :">
+            </Label>
+
+            <FlexLayout Grid.Row="4" Grid.Column="1">
+                <HorizontalStackLayout>
+                    <Label Text="Full-Time" Style="{StaticResource Grid.Label}"></Label>
+                    <RadioButton IsChecked="True" GroupName="EmployeeType">
+
+                    </RadioButton>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Part-Time" Style="{StaticResource Grid.Label}"></Label>
+                    <RadioButton GroupName="EmployeeType">
+
+                    </RadioButton>
+                </HorizontalStackLayout>
+            </FlexLayout>
+
+            <!--DateTime-->
+            <Label Grid.Row="5" Style="{StaticResource Grid.Label}" Text="Ngày sinh :">
+            </Label>
+
+
+            <DatePicker Grid.Row="5" Grid.Column="1" HorizontalOptions="Start" Date="{Binding UserObject.BirthDate}" >
+
+            </DatePicker>
+
+            <Label Grid.Row="6" Style="{StaticResource Grid.Label}" Text="Giới tính :">
+            </Label>
+
+            <FlexLayout Grid.Row="6" Grid.Column="1">
+                <HorizontalStackLayout>
+                    <Picker>
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Nam</x:String>
+                                <x:String>Nữ</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </HorizontalStackLayout>
+            </FlexLayout>
+
+            <HorizontalStackLayout Grid.Row="7" Grid.Column="1" Spacing="5">
+                <Button Text="Save" Clicked="SaveButton_Clicked"></Button>
+                <Button Text="Cancel"></Button>
+
+            </HorizontalStackLayout>
+
+        </Grid>
+    </ScrollView>
+
 </ContentPage>

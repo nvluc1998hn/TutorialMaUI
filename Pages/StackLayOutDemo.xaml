@@ -8,5 +8,6 @@
         <Button x:Name="gridButton" Text="Grid LayOut" Clicked="gridButton_Clicked"></Button>
         <Button x:Name="flexLayOut" Text="Flex LayOut" Clicked="gridButtonFlex_Clicked"></Button>
         <Button x:Name="collection" Text="Collection" Clicked="collection_LayOut"></Button>
+        <Button x:Name="login" Text="Login View" Clicked="loginView_Click"></Button>
     </StackLayout>
 </ContentPage> 
