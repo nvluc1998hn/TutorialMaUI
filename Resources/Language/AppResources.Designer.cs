@@ -61,7 +61,61 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên tài khoản.
+        ///   Looks up a localized string similar to Tự động đăng nhập.
+        /// </summary>
+        internal static string AuToLogin {
+            get {
+                return ResourceManager.GetString("AuToLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đăng nhập.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quên mật khẩu ?.
+        /// </summary>
+        internal static string LossPass {
+            get {
+                return ResourceManager.GetString("LossPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} tối đa 50 ký tự.
+        /// </summary>
+        internal static string MaxLength50 {
+            get {
+                return ResourceManager.GetString("MaxLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mật khẩu.
+        /// </summary>
+        internal static string PassWord {
+            get {
+                return ResourceManager.GetString("PassWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} không được bỏ trống.
+        /// </summary>
+        internal static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên đăng nhập.
         /// </summary>
         internal static string UserName {
             get {

@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TutorialMaUI.Pages.FlexLayOutDemo"
+             xmlns:local="clr-namespace:TutorialMaUI.Models"
              Title="Flex LayOut Demo">
+
+    <ContentPage.BindingContext>
+        <local:TestViewModel />
+    </ContentPage.BindingContext>
+
     <ScrollView Orientation="Horizontal">
         <FlexLayout Direction="Row">
             <BoxView HeightRequest="150" WidthRequest="100" Color="#3498DB"></BoxView>
@@ -11,5 +17,10 @@
             <BoxView HeightRequest="150" WidthRequest="100" Color="#F1C40F"></BoxView>
         </FlexLayout>
     </ScrollView>
+
+    <StackLayout Padding="30">
+        <Switch IsToggled="{Binding IsEnableButton, Mode=TwoWay}" />
+        <Button Text="Submit" IsEnabled="{Binding IsEnableButton}" />
+    </StackLayout>
 
 </ContentPage>

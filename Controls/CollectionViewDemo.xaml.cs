@@ -7,9 +7,9 @@ namespace TutorialMaUI.Controls;
 
 public partial class CollectionViewDemo : ContentPage
 {
-	public CollectionViewDemo()
-	{
-		InitializeComponent();
+    public CollectionViewDemo()
+    {
+        InitializeComponent();
         ViewModel = new UserViewModel();
     }
 
@@ -17,7 +17,6 @@ public partial class CollectionViewDemo : ContentPage
 
     private void SaveButton_Clicked(object sender, EventArgs e)
     {
-        
         System.Diagnostics.Debugger.Break();
     }
 

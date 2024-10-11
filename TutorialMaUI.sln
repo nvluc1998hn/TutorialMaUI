@@ -5,9 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialMaUI", "TutorialMaUI.csproj", "{B08BE911-A88E-472C-ACE8-C1A17BE055B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorialMAUI.Entity", "..\TutorialMAUI.Entity\TutorialMAUI.Entity.csproj", "{52739112-686E-422F-B626-68A151C9AF5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialMAUI.Entity", "..\TutorialMAUI.Entity\TutorialMAUI.Entity.csproj", "{52739112-686E-422F-B626-68A151C9AF5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Library", "..\Common.Library\Common.Library.csproj", "{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Library", "..\Common.Library\Common.Library.csproj", "{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.ValidationRules", "..\Plugin.ValidationRules\Plugin.ValidationRules.csproj", "{83974E5C-930F-48F9-9A81-2E4FD45F90BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83974E5C-930F-48F9-9A81-2E4FD45F90BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83974E5C-930F-48F9-9A81-2E4FD45F90BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83974E5C-930F-48F9-9A81-2E4FD45F90BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83974E5C-930F-48F9-9A81-2E4FD45F90BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

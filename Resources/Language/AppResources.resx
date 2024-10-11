@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AuToLogin" xml:space="preserve">
+    <value>Tự động đăng nhập</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="LossPass" xml:space="preserve">
+    <value>Quên mật khẩu ?</value>
+  </data>
+  <data name="MaxLength50" xml:space="preserve">
+    <value>{0} tối đa 50 ký tự</value>
+  </data>
+  <data name="PassWord" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>{0} không được bỏ trống</value>
+  </data>
   <data name="UserName" xml:space="preserve">
-    <value>Tên tài khoản</value>
+    <value>Tên đăng nhập</value>
   </data>
 </root>
