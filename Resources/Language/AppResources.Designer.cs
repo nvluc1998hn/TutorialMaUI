@@ -61,6 +61,24 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tài khoản của bạn đã bị xóa.
+        /// </summary>
+        internal static string AccountDelete {
+            get {
+                return ResourceManager.GetString("AccountDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tài khoản của bạn đã bị khóa.
+        /// </summary>
+        internal static string AccountLock {
+            get {
+                return ResourceManager.GetString("AccountLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tự động đăng nhập.
         /// </summary>
         internal static string AuToLogin {
@@ -79,6 +97,15 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tài khoản hoặc mật khẩu không chính xác.
+        /// </summary>
+        internal static string LoginFalse {
+            get {
+                return ResourceManager.GetString("LoginFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quên mật khẩu ?.
         /// </summary>
         internal static string LossPass {
@@ -93,6 +120,15 @@ namespace TutorialMaUI.Resources.Language {
         internal static string MaxLength50 {
             get {
                 return ResourceManager.GetString("MaxLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông báo.
+        /// </summary>
+        internal static string NotificationPopup {
+            get {
+                return ResourceManager.GetString("NotificationPopup", resourceCulture);
             }
         }
         

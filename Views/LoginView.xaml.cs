@@ -1,26 +1,91 @@
-﻿using LocalizationResourceManager.Maui.ComponentModel;
-using System.Windows.Input;
+﻿using Common.Library.RestAPI;
+using CommunityToolkit.Maui.Views;
+using System.Globalization;
+using TutorialMaUI.Enums;
+using TutorialMaUI.Extensions;
+using TutorialMaUI.Models;
+using TutorialMaUI.Pages;
+using TutorialMaUI.Resources.Language;
 using TutorialMaUI.Valid;
-using TutorialMaUI.ViewModel;
+using TutorialMaUI.ViewModel.Respond;
 
 namespace TutorialMaUI.Views;
 
 public partial class LoginView : ContentPage
 {
     UserLoginValid _userLoginValid;
+    private bool isPasswordHidden = true;
+    private IServiceCommunication _serviceCommunication;
 
-    public LoginView()
+
+    public LoginView(IServiceCommunication serviceCommunication)
     {
-
         InitializeComponent();
         _userLoginValid = new UserLoginValid();
         BindingContext = _userLoginValid;
+        labelLangueControl.Text = "Việt Nam";
+        _serviceCommunication = serviceCommunication;
     }
 
-    private void SaveButton_Clicked(object sender, EventArgs e)
+    private string language;
+    public string Language
+    {
+        get => language;
+        set
+        {
+            language = value;
+            OnPropertyChanged(); // Notify the UI of the change
+        }
+    }
+
+
+    private async void SaveButton_Clicked(object sender, EventArgs e)
     {
         var isValid = _userLoginValid.Validate();
-        System.Diagnostics.Debugger.Break();
+        bool isLoginSuccess = false;
+        string messageError = "";
+
+        string apiUrl = "http://10.1.11.107:8069/authentication/login";
+        try
+        {
+            if (isValid)
+            {
+                var loginData = new
+                {
+                    userName = _userLoginValid.UserName.Value,
+                    password = _userLoginValid.PassWord.Value
+                };
+
+                var dataResult = await _serviceCommunication.PostAsync<LoginViewModel>(apiUrl, apiUrl, loginData);
+
+                if (dataResult.Status == LoginStatus.Success)
+                {
+                    isLoginSuccess = true;
+                }
+                else if (dataResult.Status == LoginStatus.AccountDelete)
+                {
+                    messageError = AppResources.AccountDelete;
+                }
+                else if (dataResult.Status == LoginStatus.AccountLock)
+                {
+                    messageError = AppResources.AccountLock;
+                }
+                else
+                {
+                    messageError = AppResources.LoginFalse;
+                }
+
+                if (!isLoginSuccess)
+                {
+                    this.ShowPopup(new PopupPage(messageError));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle error, e.g., show error message
+            Console.WriteLine("Login failed: " + ex.Message);
+        }
     }
 
     private void ChangeInputUserName(object sender, TextChangedEventArgs e)
@@ -38,5 +103,38 @@ public partial class LoginView : ContentPage
             _userLoginValid.PassWord.Validate();
             _userLoginValid.IsEnableButtonSubmit = !_userLoginValid.UserName.HasErrors && !_userLoginValid.PassWord.HasErrors;
         }
+    }
+
+    private void OnImageTapped(object sender, EventArgs e)
+    {
+        if (isPasswordHidden)
+        {
+            txtPass.IsPassword = false;
+            ImagePass.Source = "eyeshow.png";
+        }
+        else
+        {
+            txtPass.IsPassword = true;
+            ImagePass.Source = "eyeslash.png";
+        }
+
+        isPasswordHidden = !isPasswordHidden;
+    }
+
+    private void ChangeLangue(object sender, EventArgs e)
+    {
+        var popup = new PopupLangue();
+        // Sự kiện lắng nghe khi PopUp được chọn
+        popup.ItemSelected += OnItemSelected;
+        this.ShowPopup(popup);
+    }
+
+    private void OnItemSelected(Country selectedValue)
+    {
+        labelLangueControl.Text = selectedValue.CountryName;
+        imageLangueControl.Source = selectedValue.FlagUrl;
+
+        Translator.Instance.CultureInfo = new CultureInfo(selectedValue.IsoCode);
+        Translator.Instance.OnPropetyChanged();
     }
 }

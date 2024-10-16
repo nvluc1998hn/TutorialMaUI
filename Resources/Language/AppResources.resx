@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountDelete" xml:space="preserve">
+    <value>Tài khoản của bạn đã bị xóa</value>
+  </data>
+  <data name="AccountLock" xml:space="preserve">
+    <value>Tài khoản của bạn đã bị khóa</value>
+  </data>
   <data name="AuToLogin" xml:space="preserve">
     <value>Tự động đăng nhập</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
+  <data name="LoginFalse" xml:space="preserve">
+    <value>Tài khoản hoặc mật khẩu không chính xác</value>
+  </data>
   <data name="LossPass" xml:space="preserve">
     <value>Quên mật khẩu ?</value>
   </data>
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} tối đa 50 ký tự</value>
+  </data>
+  <data name="NotificationPopup" xml:space="preserve">
+    <value>Thông báo</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>Mật khẩu</value>

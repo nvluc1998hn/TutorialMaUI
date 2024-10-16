@@ -2,33 +2,63 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TutorialMaUI.Controls.CollectionViewDemo"
-             xmlns:vm="clr-namespace:TutorialMaUI.ViewModel"
-             x:DataType="vm:UserViewModel"
+             xmlns:vm="clr-namespace:TutorialMaUI.Models"
+             x:DataType="vm:Country"
              Title="CollectionViewDemo">
 
-    <ScrollView>
+    <CollectionView x:Name="collectionView" ItemsLayout="VerticalList" SelectionMode="Single">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"></ColumnDefinition>
+                            <ColumnDefinition Width=".8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding FlagUrl}" Grid.Row="0"></Image>
+                        <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
+                            <Label Text="{Binding CountryName}" ></Label>
+                            <Label Text="{Binding IsoCode}" ></Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    <!--<ScrollView>
         <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
-            <!-- Label cho User Name -->
+            -->
+    <!-- Label cho User Name -->
+    <!--
             <Label Grid.Row="0" Style="{StaticResource Grid.Label}"
        Text="User Name :">
             </Label>
 
-            <!-- Entry cho nhập tên người dùng -->
+            -->
+    <!-- Entry cho nhập tên người dùng -->
+    <!--
             <Entry Grid.Row="0" Grid.Column="1" Placeholder="Nhập tên người dùng" Text="{Binding UserObject.LastName}"
        VerticalOptions="Center">
             </Entry>
 
-            <!-- Label cho SĐT -->
+            -->
+    <!-- Label cho SĐT -->
+    <!--
             <Label  Grid.Row="1" Style="{StaticResource Grid.Label}"
                 Text="SĐT :">
             </Label>
 
-            <!-- Entry cho SĐT -->
+            -->
+    <!-- Entry cho SĐT -->
+    <!--
             <Entry Grid.Row="1" Grid.Column="1" Placeholder="Nhập số điện thoại" Keyboard="Telephone" MaxLength="10"
      VerticalOptions="Center" Text="{Binding UserObject.Phone}">
             </Entry>
 
-            <!--kiểu lỗi-->
+            -->
+    <!--kiểu lỗi-->
+    <!--
             <Label  Grid.Row="2" Style="{StaticResource Grid.Label}"
         Text="Kiểu lỗi :">
             </Label>
@@ -43,7 +73,9 @@
 
             </FlexLayout>
 
-            <!--Switch Button-->
+            -->
+    <!--Switch Button-->
+    <!--
 
             <Label Grid.Row="3"  Style="{StaticResource Grid.Label}"
      Text="Still Employed? :" />
@@ -51,7 +83,9 @@
       Grid.Column="1"
       IsToggled="{Binding UserObject.IsActive}" />
 
-            <!--Checkbox-->
+            -->
+    <!--Checkbox-->
+    <!--
             <Label  Grid.Row="4" Style="{StaticResource Grid.Label}"
      Text="Loại nhân viên :">
             </Label>
@@ -72,7 +106,9 @@
                 </HorizontalStackLayout>
             </FlexLayout>
 
-            <!--DateTime-->
+            -->
+    <!--DateTime-->
+    <!--
             <Label Grid.Row="5" Style="{StaticResource Grid.Label}" Text="Ngày sinh :">
             </Label>
 
@@ -104,6 +140,6 @@
             </HorizontalStackLayout>
 
         </Grid>
-    </ScrollView>
+    </ScrollView>-->
 
 </ContentPage>

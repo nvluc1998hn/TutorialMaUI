@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="TutorialMaUI.Pages.PopupPage"
+             xmlns:lang="clr-namespace:TutorialMaUI.Resources.Language"
+             Color="Transparent"
+            >
+    <Border StrokeShape="RoundRectangle 20"
+        StrokeThickness="2"
+        HorizontalOptions="Center"
+        BackgroundColor="White" 
+        WidthRequest="300"
+        HeightRequest="170"
+        VerticalOptions="Center"
+        Padding="0">
+
+        <VerticalStackLayout Padding="0" Margin="0" VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static lang:AppResources.NotificationPopup}"
+               FontSize="15"
+               Padding="10"
+               TextColor="#0959a0"
+               HorizontalOptions="Center"/>
+
+            <Label Text="{Binding LabelMessage}"
+               FontSize="15"
+               Padding="20,10,20,5"
+               HorizontalOptions="Start"/>
+
+            <!-- Set BoxView color to transparent -->
+            <BoxView HeightRequest="20" VerticalOptions="End" BackgroundColor="Transparent"/>
+
+            <Button Text="Close" BackgroundColor="#0959a0" Padding="0"
+                Clicked="ClosePopup"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"/>
+        </VerticalStackLayout>
+
+    </Border>
+</mct:Popup>

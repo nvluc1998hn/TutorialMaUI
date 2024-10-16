@@ -1,7 +1,5 @@
-﻿using System.Globalization;
-using TutorialMaUI.Models;
+﻿using TutorialMaUI.Models;
 using TutorialMaUI.ViewModel;
-using TutorialMAUI.Entity.EntityClass;
 
 namespace TutorialMaUI.Controls;
 
@@ -10,7 +8,7 @@ public partial class CollectionViewDemo : ContentPage
     public CollectionViewDemo()
     {
         InitializeComponent();
-        ViewModel = new UserViewModel();
+        collectionView.ItemsSource = GetCountries();
     }
 
     public UserViewModel ViewModel { get; set; }
@@ -26,5 +24,13 @@ public partial class CollectionViewDemo : ContentPage
 
         // Set the Page BindingContext
         BindingContext = ViewModel;
+    }
+
+    private List<Country> GetCountries()
+    {
+        return new List<Country> {
+            new Country(){ CountryName="Việt Nam", IsoCode="Vi-VN", FlagUrl="flagvietnam.jpg"},
+            new Country(){ CountryName="English", IsoCode="en-EN", FlagUrl="flagenglish.svg"}
+        };
     }
 }

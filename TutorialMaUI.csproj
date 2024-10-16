@@ -57,11 +57,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="FluentValidation" Version="11.10.0" />
 		<PackageReference Include="LocalizationResourceManager.Maui" Version="1.2.1" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.91" />
 		<PackageReference Include="Syncfusion.Maui.Inputs" Version="27.1.51" />
 	</ItemGroup>
 
@@ -96,6 +99,12 @@
 		<MauiXaml Update="Pages\GridLayOutDemo.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Pages\PopupLangue.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Pages\PopupPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Pages\StackLayOutDemo.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -111,6 +120,10 @@
 		<MauiXaml Update="Views\UserListDetail.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Res\" />
 	</ItemGroup>
 
 </Project>

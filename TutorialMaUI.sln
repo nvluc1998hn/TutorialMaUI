@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialMAUI.Entity", "..\T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Library", "..\Common.Library\Common.Library.csproj", "{BA7845F4-67BD-4DD4-A18F-3C37323FFB25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.ValidationRules", "..\Plugin.ValidationRules\Plugin.ValidationRules.csproj", "{83974E5C-930F-48F9-9A81-2E4FD45F90BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.ValidationRules", "..\Plugin.ValidationRules\Plugin.ValidationRules.csproj", "{83974E5C-930F-48F9-9A81-2E4FD45F90BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

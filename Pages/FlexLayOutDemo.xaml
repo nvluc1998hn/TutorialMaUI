@@ -5,22 +5,4 @@
              xmlns:local="clr-namespace:TutorialMaUI.Models"
              Title="Flex LayOut Demo">
 
-    <ContentPage.BindingContext>
-        <local:TestViewModel />
-    </ContentPage.BindingContext>
-
-    <ScrollView Orientation="Horizontal">
-        <FlexLayout Direction="Row">
-            <BoxView HeightRequest="150" WidthRequest="100" Color="#3498DB"></BoxView>
-            <BoxView HeightRequest="150" WidthRequest="150" Color="#1ABC9C"></BoxView>
-            <BoxView HeightRequest="150" WidthRequest="150" Color="#9B59B6"></BoxView>
-            <BoxView HeightRequest="150" WidthRequest="100" Color="#F1C40F"></BoxView>
-        </FlexLayout>
-    </ScrollView>
-
-    <StackLayout Padding="30">
-        <Switch IsToggled="{Binding IsEnableButton, Mode=TwoWay}" />
-        <Button Text="Submit" IsEnabled="{Binding IsEnableButton}" />
-    </StackLayout>
-
 </ContentPage>

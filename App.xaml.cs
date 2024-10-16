@@ -1,21 +1,25 @@
-﻿using System.Globalization;
+﻿using Common.Library.RestAPI;
+using System.Globalization;
+using TutorialMaUI.Extensions;
 using TutorialMaUI.Pages;
 
 namespace TutorialMaUI
 {
     public partial class App : Application
     {
-        public App()
+        private readonly IServiceCommunication _serviceCommunication;
+        public App(IServiceCommunication serviceCommunication)
         {
             InitializeComponent();
 
-           // MainPage = new AppShell();
+            _serviceCommunication = serviceCommunication;
 
-            var navigationPage = new NavigationPage(new StackLayOutDemo());
+            var navigationPage = new NavigationPage(new StackLayOutDemo(_serviceCommunication));
 
             MainPage = navigationPage;
 
-            CultureInfo.CurrentUICulture = new CultureInfo("");
+            Translator.Instance.CultureInfo = new CultureInfo("");
+
         }
     }
 }

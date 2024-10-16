@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountDelete" xml:space="preserve">
+    <value>Account is delete</value>
+  </data>
+  <data name="AccountLock" xml:space="preserve">
+    <value>Account is lock</value>
+  </data>
   <data name="AuToLogin" xml:space="preserve">
     <value>Auto Login</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Đăng nhập</value>
+    <value>Login</value>
+  </data>
+  <data name="LoginFalse" xml:space="preserve">
+    <value>Account or password not correct</value>
   </data>
   <data name="LossPass" xml:space="preserve">
     <value>Loss Pass ?</value>
   </data>
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} max 50 character</value>
+  </data>
+  <data name="NotificationPopup" xml:space="preserve">
+    <value>NotificationPopup</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>PassWord</value>

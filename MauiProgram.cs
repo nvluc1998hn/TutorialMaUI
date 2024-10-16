@@ -1,5 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Common.Library.RestAPI;
+using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic;
 using Syncfusion.Maui.Core.Hosting;
+using TutorialMaUI.Extensions;
 
 namespace TutorialMaUI
 {
@@ -10,6 +14,7 @@ namespace TutorialMaUI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -22,6 +27,14 @@ namespace TutorialMaUI
             builder.Logging.AddDebug();
             builder.ConfigureSyncfusionCore();
 #endif
+            builder.ConfigureMauiHandlers((handlers) =>
+             {
+                 handlers.ConfigureHandlers();
+             });
+
+            builder.Services.AddSingleton<IServiceCommunication, ServiceCommunication>();
+            builder.Services.AddHttpClient();
+
 
             return builder.Build();
         }
