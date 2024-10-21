@@ -1,11 +1,12 @@
 using CommunityToolkit.Maui.Views;
 using System.ComponentModel;
 
-namespace TutorialMaUI.Pages;
+namespace TutorialMaUI.PopUp;
 
-public partial class PopupPage : Popup, INotifyPropertyChanged
+public partial class PopupConfirm : Popup, INotifyPropertyChanged
 {
     private string labelMessage;
+    public event EventHandler Accepted;
 
     public string LabelMessage
     {
@@ -17,7 +18,7 @@ public partial class PopupPage : Popup, INotifyPropertyChanged
         }
     }
 
-    public PopupPage(string label)
+    public PopupConfirm(string label)
     {
         InitializeComponent();
         LabelMessage = label;
@@ -35,5 +36,10 @@ public partial class PopupPage : Popup, INotifyPropertyChanged
     {
         this.Close();
     }
-}
 
+    private void AcceptPopup(object sender, EventArgs e)
+    {
+        Accepted?.Invoke(this, EventArgs.Empty);
+        Close();
+    }
+}

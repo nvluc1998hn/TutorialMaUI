@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup
+    x:Class="TutorialMaUI.PopUp.PopupConfirm"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extensionTrans="clr-namespace:TutorialMaUI.Extensions"
+    xmlns:langSource="clr-namespace:Common.Library.LanguageKeys;assembly=Common.Library"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+    Color="Transparent">
+    <Border
+        Padding="0"
+        BackgroundColor="White"
+        HeightRequest="170"
+        HorizontalOptions="Center"
+        StrokeShape="RoundRectangle 20"
+        StrokeThickness="2"
+        VerticalOptions="Center"
+        WidthRequest="300">
+
+        <VerticalStackLayout
+            Margin="0"
+            Padding="0"
+            VerticalOptions="FillAndExpand">
+            <Label
+                Padding="10"
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="Center"
+                Text="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.NotificationPopup}}"
+                TextColor="#0959a0" />
+
+            <Label
+                Padding="20,10,20,5"
+                FontSize="15"
+                HorizontalOptions="Start"
+                Text="{Binding LabelMessage}" />
+
+            <!--  Set BoxView color to transparent  -->
+            <BoxView
+                BackgroundColor="Transparent"
+                HeightRequest="20"
+                VerticalOptions="End" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Button
+                    Padding="0"
+                    BackgroundColor="#0959a0"
+                    Clicked="AcceptPopup"
+                    Text="Đồng ý"
+                    VerticalOptions="End"
+                    WidthRequest="60" />
+                <Button
+                    Margin="10,0"
+                    Padding="0"
+                    BackgroundColor="Gray"
+                    Clicked="ClosePopup"
+                    Text="Đóng"
+                    VerticalOptions="End"
+                    WidthRequest="60" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+
+
+    </Border>
+</mct:Popup>

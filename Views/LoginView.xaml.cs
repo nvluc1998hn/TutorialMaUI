@@ -1,11 +1,11 @@
-﻿using Common.Library.RestAPI;
+﻿using Common.Library.LanguageKeys;
+using Common.Library.RestAPI;
 using CommunityToolkit.Maui.Views;
 using System.Globalization;
 using TutorialMaUI.Enums;
 using TutorialMaUI.Extensions;
 using TutorialMaUI.Models;
 using TutorialMaUI.Pages;
-using TutorialMaUI.Resources.Language;
 using TutorialMaUI.Valid;
 using TutorialMaUI.ViewModel.Respond;
 
@@ -61,18 +61,20 @@ public partial class LoginView : ContentPage
                 if (dataResult.Status == LoginStatus.Success)
                 {
                     isLoginSuccess = true;
+                    App.Current.MainPage = new NavigationPage(new ListEmployee());
+                    //   await Navigation.PushAsync(new ListEmployee());
                 }
                 else if (dataResult.Status == LoginStatus.AccountDelete)
                 {
-                    messageError = AppResources.AccountDelete;
+                    messageError = Translator.Instance[LanguageKey.AccountDelete];
                 }
                 else if (dataResult.Status == LoginStatus.AccountLock)
                 {
-                    messageError = AppResources.AccountLock;
+                    messageError = Translator.Instance[LanguageKey.AccountLock];
                 }
                 else
                 {
-                    messageError = AppResources.LoginFalse;
+                    messageError = Translator.Instance[LanguageKey.LoginFalse];
                 }
 
                 if (!isLoginSuccess)

@@ -123,8 +123,23 @@
   <data name="AccountLock" xml:space="preserve">
     <value>Account is lock</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="AuToLogin" xml:space="preserve">
     <value>Auto Login</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailValid" xml:space="preserve">
+    <value>Email Valid</value>
+  </data>
+  <data name="ForbiddenCharacters" xml:space="preserve">
+    <value>Không được phép chứa các ký tự cấm ^'`~!@#$%^*()\_+={}[\]:;|\\,.?</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -138,14 +153,29 @@
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} max 50 character</value>
   </data>
+  <data name="MenuLoginTitle" xml:space="preserve">
+    <value>Page Login</value>
+  </data>
   <data name="NotificationPopup" xml:space="preserve">
     <value>NotificationPopup</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>PassWord</value>
   </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>{0} is required</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="StaffName" xml:space="preserve">
+    <value>StaffName</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>User acount</value>

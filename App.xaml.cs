@@ -1,4 +1,5 @@
 ﻿using Common.Library.RestAPI;
+using Syncfusion.Licensing;
 using System.Globalization;
 using TutorialMaUI.Extensions;
 using TutorialMaUI.Pages;
@@ -18,7 +19,11 @@ namespace TutorialMaUI
 
             MainPage = navigationPage;
 
+            SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1NpR2FGfV5ycEVHYVZRRHxaSk0DNHVRdkdnWH9fdXZWRmBZWUBxX0c=");
+
             Translator.Instance.CultureInfo = new CultureInfo("");
+
+            CultureInfo.CurrentUICulture = new CultureInfo("");
 
         }
     }

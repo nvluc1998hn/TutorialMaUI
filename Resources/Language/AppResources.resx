@@ -123,8 +123,23 @@
   <data name="AccountLock" xml:space="preserve">
     <value>Tài khoản của bạn đã bị khóa</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
   <data name="AuToLogin" xml:space="preserve">
     <value>Tự động đăng nhập</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailValid" xml:space="preserve">
+    <value>Sai định dạng Email</value>
+  </data>
+  <data name="ForbiddenCharacters" xml:space="preserve">
+    <value>Không được phép chứa các ký tự cấm ^'`~!@#$%^*()\_+={}[\]:;|\\,.?</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Đăng nhập</value>
@@ -138,14 +153,29 @@
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} tối đa 50 ký tự</value>
   </data>
+  <data name="MenuLoginTitle" xml:space="preserve">
+    <value>Trang đăng nhập</value>
+  </data>
   <data name="NotificationPopup" xml:space="preserve">
     <value>Thông báo</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>Mật khẩu</value>
   </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>{0} không được bỏ trống</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Chức vụ</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="StaffName" xml:space="preserve">
+    <value>Tên nhân viên</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Tên đăng nhập</value>

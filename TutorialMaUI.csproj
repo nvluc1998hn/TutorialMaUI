@@ -65,6 +65,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.91" />
+		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="27.1.51" />
 		<PackageReference Include="Syncfusion.Maui.Inputs" Version="27.1.51" />
 	</ItemGroup>
 
@@ -108,8 +109,14 @@
 		<MauiXaml Update="Pages\StackLayOutDemo.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="PopUp\PopupConfirm.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Resources\Styles\CustomStyle.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\EmployeeDetail.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Views\LoginView.xaml">
 			<Generator>MSBuild:Compile</Generator>
@@ -120,10 +127,6 @@
 		<MauiXaml Update="Views\UserListDetail.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Res\" />
 	</ItemGroup>
 
 </Project>

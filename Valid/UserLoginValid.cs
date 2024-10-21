@@ -1,13 +1,8 @@
-﻿using Plugin.ValidationRules;
+﻿using Common.Library.LanguageKeys;
+using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using TutorialMaUI.Resources.Language;
+using TutorialMaUI.Extensions;
 using TutorialMaUI.Validations;
 
 namespace TutorialMaUI.Valid
@@ -35,26 +30,27 @@ namespace TutorialMaUI.Valid
             }
         }
 
-        // Notify the UI of changes
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
         public UserLoginValid()
         {
-            string passMessageValid = string.Format(AppResources.Required, AppResources.PassWord);
-            string userNameMessageValid = string.Format(AppResources.Required, AppResources.UserName);
+            var required = Translator.Instance[LanguageKey.Required];
+            string passMessageValid = string.Format(required, Translator.Instance[LanguageKey.PassWord]);
+            string userNameMessageValid = string.Format(required, Translator.Instance[LanguageKey.UserName]);
 
             UserName = Validator.Build<string>().IsRequired(userNameMessageValid).WithRule(new UserNameRule());
             PassWord = Validator.Build<string>().IsRequired(passMessageValid).WithRule(new PasswordRule());
+
         }
 
         public bool Validate()
         {
             return PassWord.Validate() && UserName.Validate();
+        }
+
+        // Notify the UI of changes
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

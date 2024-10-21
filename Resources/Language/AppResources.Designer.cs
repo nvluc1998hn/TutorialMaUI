@@ -79,11 +79,56 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Địa chỉ.
+        /// </summary>
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tự động đăng nhập.
         /// </summary>
         internal static string AuToLogin {
             get {
                 return ResourceManager.GetString("AuToLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sai định dạng Email.
+        /// </summary>
+        internal static string EmailValid {
+            get {
+                return ResourceManager.GetString("EmailValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không được phép chứa các ký tự cấm ^&apos;`~!@#$%^*()\_+={}[\]:;|\\,.?.
+        /// </summary>
+        internal static string ForbiddenCharacters {
+            get {
+                return ResourceManager.GetString("ForbiddenCharacters", resourceCulture);
             }
         }
         
@@ -124,6 +169,15 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trang đăng nhập.
+        /// </summary>
+        internal static string MenuLoginTitle {
+            get {
+                return ResourceManager.GetString("MenuLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thông báo.
         /// </summary>
         internal static string NotificationPopup {
@@ -142,11 +196,47 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} không được bỏ trống.
         /// </summary>
         internal static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chức vụ.
+        /// </summary>
+        internal static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giới tính.
+        /// </summary>
+        internal static string Sex {
+            get {
+                return ResourceManager.GetString("Sex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên nhân viên.
+        /// </summary>
+        internal static string StaffName {
+            get {
+                return ResourceManager.GetString("StaffName", resourceCulture);
             }
         }
         

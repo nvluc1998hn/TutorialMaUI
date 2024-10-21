@@ -1,12 +1,226 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorialMaUI.Views.ListEmployee"
-             Title="ListEmployee">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+<ContentPage
+    x:Class="TutorialMaUI.Views.ListEmployee"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+    xmlns:extension="clr-namespace:TutorialMaUI.Extensions"
+    xmlns:local="clr-namespace:TutorialMaUI.ViewModel.Respond"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="root"
+    Title="Danh sách nhân viên">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding AddStaffCommand}"
+            IconImageSource="plus.png"
+            Text="Thêm mới" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <extension:DateFormatConverter x:Key="DateFormatConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <StackLayout BackgroundColor="White">
+            <Border
+                Margin="15,10,15,10"
+                Padding="0"
+                HeightRequest="36"
+                Stroke="#0959a0"
+                StrokeShape="RoundRectangle 20"
+                StrokeThickness="1.5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!--  Entry takes most of the space  -->
+                        <ColumnDefinition Width="40" />
+                        <!--  Icon width  -->
+                    </Grid.ColumnDefinitions>
+
+                    <Entry
+                        Grid.Column="0"
+                        Margin="10,0"
+                        FontSize="11"
+                        Placeholder="Tìm kiếm theo tên nhân viên, SĐT"
+                        PlaceholderColor="#d7dbdd"
+                        Text="{Binding Keyword}">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior Command="{Binding GetDataByKeyWordCommand}" EventName="TextChanged" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+
+                    <Image
+                        Grid.Column="1"
+                        HeightRequest="25"
+                        HorizontalOptions="Center"
+                        Source="search.svg"
+                        VerticalOptions="Center"
+                        WidthRequest="25" />
+                </Grid>
+            </Border>
+            <BoxView
+                BackgroundColor="#e5e8e8"
+                HeightRequest="10"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+
+
+
+
+        <syncfusion:SfListView
+            AllowSwiping="True"
+            AutoFitMode="DynamicHeight"
+            ItemSize="100"
+            ItemsSource="{Binding Records}"
+            LoadMoreCommand="{Binding LoadMoreItemsCommand}"
+            LoadMoreOption="AutoOnScroll"
+            SelectedItem="{Binding .}"
+            SwipeOffset="120"
+            TapCommand="{Binding Source={x:Reference root}, Path=BindingContext.GetDetailDataCommand}">
+
+            <syncfusion:SfListView.DataSource>
+                <data:DataSource>
+                    <data:DataSource.GroupDescriptors>
+                        <data:GroupDescriptor PropertyName="PartName" />
+                    </data:DataSource.GroupDescriptors>
+                </data:DataSource>
+            </syncfusion:SfListView.DataSource>
+
+            <syncfusion:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout BackgroundColor="#a2d9ce">
+                                <Label
+                                    Padding="4,5"
+                                    FontAttributes="Bold"
+                                    FontSize="15"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Key}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </syncfusion:SfListView.GroupHeaderTemplate>
+
+            <syncfusion:SfListView.EndSwipeTemplate>
+                <DataTemplate x:Name="StartSwipeTemplate">
+                    <Grid BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid
+                            Grid.Column="0"
+                            BackgroundColor="#f2f3f4"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="150">
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Grid>
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        HeightRequest="20"
+                                        Source="edit.png"
+                                        WidthRequest="20" />
+                                </Grid>
+                                <Label HorizontalOptions="Center" Text="Sửa" />
+                            </StackLayout>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference root}, Path=BindingContext.GetDetailDataCommand}" CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid
+                            Grid.Column="2"
+                            BackgroundColor="#d5dbdb"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        HeightRequest="20"
+                                        Source="trash.png"
+                                        WidthRequest="20" />
+                                </Grid>
+                                <Label HorizontalOptions="Center" Text="Xóa" />
+                            </StackLayout>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference root}, Path=BindingContext.DeleteDataCommand}" CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.EndSwipeTemplate>
+
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        HorizontalOptions="FillAndExpand"
+                        RowDefinitions="Auto,1"
+                        RowSpacing="10">
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Padding="0"
+                                HeightRequest="55"
+                                HorizontalOptions="Center"
+                                Stroke="#2874a6"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="3"
+                                VerticalOptions="Center"
+                                WidthRequest="55">
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="55"
+                                    Source="{Binding Image}"
+                                    WidthRequest="55" />
+                            </Border>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label FontAttributes="Bold" Text="{Binding StaffName}" />
+                                <Label Text="{Binding PartName}" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Grid.Column="0" Text="{Binding Email}" />
+
+                                    <!--  CreatedDate Label aligned to the right  -->
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="5,0"
+                                        Text="{Binding CreatedDate, Converter={StaticResource DateFormatConverter}}" />
+                                </Grid>
+                            </StackLayout>
+                        </Grid>
+                        <BoxView
+                            Grid.Row="1"
+                            BackgroundColor="#e5e8e8"
+                            HeightRequest="15"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand" />
+
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+
+
+        </syncfusion:SfListView>
+
+
+    </StackLayout>
+
+
 </ContentPage>

@@ -1,9 +1,10 @@
 ﻿using Common.Library.RestAPI;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic;
 using Syncfusion.Maui.Core.Hosting;
 using TutorialMaUI.Extensions;
+using TutorialMaUI.Service;
+using TutorialMaUI.Service.Interface;
 
 namespace TutorialMaUI
 {
@@ -15,6 +16,7 @@ namespace TutorialMaUI
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -33,6 +35,8 @@ namespace TutorialMaUI
              });
 
             builder.Services.AddSingleton<IServiceCommunication, ServiceCommunication>();
+            builder.Services.AddSingleton<IAdminStaffService, AdminStaffService>();
+
             builder.Services.AddHttpClient();
 
 

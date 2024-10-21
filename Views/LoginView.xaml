@@ -1,46 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:lang="clr-namespace:TutorialMaUI.Resources.Language"
-             xmlns:langSource="clr-namespace:Common.Library.LanguageKeys;assembly=Common.Library"
-             xmlns:vm="clr-namespace:TutorialMaUI.Valid"
-             xmlns:extensionTrans="clr-namespace:TutorialMaUI.Extensions"
-             xmlns:conver="clr-namespace:TutorialMaUI.Extensions"
-             x:Class="TutorialMaUI.Views.LoginView"
-             Title="Trang đăng nhập">
+<ContentPage
+    x:Class="TutorialMaUI.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conver="clr-namespace:TutorialMaUI.Extensions"
+    xmlns:extensionTrans="clr-namespace:TutorialMaUI.Extensions"
+    xmlns:lang="clr-namespace:TutorialMaUI.Resources.Language"
+    xmlns:langSource="clr-namespace:Common.Library.LanguageKeys;assembly=Common.Library"
+    xmlns:vm="clr-namespace:TutorialMaUI.Valid"
+    Title="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.MenuLoginTitle}}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <conver:BoolToColorConverter x:Key="BoolToColorConverter" />
         </ResourceDictionary>
         <Style TargetType="StackLayout">
-            <Setter Property="Margin" Value="20,0,20,0"></Setter>
-            <Setter Property="VerticalOptions" Value="Center"></Setter>
-            <Setter Property="Orientation" Value="Horizontal"></Setter>
+            <Setter Property="Margin" Value="20,0,20,0" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Orientation" Value="Horizontal" />
         </Style>
     </ContentPage.Resources>
 
     <ContentPage.BindingContext>
-        <vm:UserLoginValid/>
+        <vm:UserLoginValid />
     </ContentPage.BindingContext>
 
-    <Grid Background="White" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" >
+    <Grid Background="White" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
 
-        <!-- Hình ảnh -->
-        <Image Grid.Row="0" HeightRequest="240" Source="Resources/Images/education.jpeg" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+        <!--  Hình ảnh  -->
+        <Image
+            Grid.Row="0"
+            Aspect="AspectFill"
+            HeightRequest="240"
+            HorizontalOptions="Fill"
+            Source="Resources/Images/education.jpeg"
+            VerticalOptions="Fill" />
 
-        <!--Chọn ngôn ngữ -->
+        <!--  Chọn ngôn ngữ  -->
 
-        <StackLayout Grid.Row="0" HorizontalOptions="End" VerticalOptions="Start"  Margin="3">
-            <Image x:Name="imageLangueControl" Source="flagvietnam.svg" 
-                HeightRequest="20" 
-                WidthRequest="20" 
-                Aspect="AspectFill" 
-                HorizontalOptions="Start" 
-                VerticalOptions="Center"/>
+        <StackLayout
+            Grid.Row="0"
+            Margin="3"
+            HorizontalOptions="End"
+            VerticalOptions="Start">
+            <Image
+                x:Name="imageLangueControl"
+                Aspect="AspectFill"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                Source="flagvietnam.svg"
+                VerticalOptions="Center"
+                WidthRequest="20" />
 
-            <Label  Margin="3" x:Name="labelLangueControl" FontAttributes="Bold" VerticalOptions="Center">
+            <Label
+                x:Name="labelLangueControl"
+                Margin="3"
+                FontAttributes="Bold"
+                VerticalOptions="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ChangeLangue" />
                 </Label.GestureRecognizers>
@@ -48,108 +65,145 @@
 
         </StackLayout>
 
-        <Grid  Grid.Row="1" Margin="15" RowDefinitions="Auto,Auto">
+        <Grid
+            Grid.Row="1"
+            Margin="15"
+            RowDefinitions="Auto,Auto">
 
-            <Frame Padding="0" Grid.Row="0" >
-                <StackLayout Padding="0" Orientation="Horizontal"  Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                    <Image Source="usericon.svg" 
-                           HeightRequest="25" 
-                           WidthRequest="25" 
-                           Aspect="AspectFill" 
-                           HorizontalOptions="Start" 
-                           VerticalOptions="Center"/>
-                    <Entry      HorizontalOptions="FillAndExpand" Placeholder="{extensionTrans:Translate Key = {x:Static langSource:LanguageKey.UserName} }"
-                                Text="{Binding UserName.Value, Mode=TwoWay}"
-                                WidthRequest="280"
-                                TextChanged="ChangeInputUserName"
-                                VerticalOptions="Center">
-                    </Entry>
+            <Frame Grid.Row="0" Padding="0">
+                <StackLayout
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalOptions="CenterAndExpand">
+                    <Image
+                        Aspect="AspectFill"
+                        HeightRequest="25"
+                        HorizontalOptions="Start"
+                        Source="usericon.svg"
+                        VerticalOptions="Center"
+                        WidthRequest="25" />
+                    <Entry
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.UserName}}"
+                        Text="{Binding UserName.Value, Mode=TwoWay}"
+                        TextChanged="ChangeInputUserName"
+                        VerticalOptions="Center"
+                        WidthRequest="280" />
                 </StackLayout>
             </Frame>
 
-            <StackLayout  Grid.Row="1">
-                <Label HorizontalTextAlignment="Start"
-                       Margin="0,10,20,5"
-                       TextColor="Red"
-                       IsVisible="{Binding UserName.HasErrors}" 
-                       Text="{Binding UserName.Error}"
-                       FontSize="Micro" />
+            <StackLayout Grid.Row="1">
+                <Label
+                    Margin="0,10,20,5"
+                    FontSize="Micro"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="{Binding UserName.HasErrors}"
+                    Text="{Binding UserName.Error}"
+                    TextColor="Red" />
             </StackLayout>
 
         </Grid>
 
-        <!--Mật khẩu-->
+        <!--  Mật khẩu  -->
 
-        <Grid  Grid.Row="2" Margin="15" RowDefinitions="Auto,Auto">
-            <Frame Padding="0" Grid.Row="0">
-                <StackLayout Padding="0" Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand"
-                             VerticalOptions="CenterAndExpand">
-                    <Image Source="usericon.svg"
-                           HeightRequest="25"
-                           WidthRequest="25"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center" />
+        <Grid
+            Grid.Row="2"
+            Margin="15"
+            RowDefinitions="Auto,Auto">
+            <Frame Grid.Row="0" Padding="0">
+                <StackLayout
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalOptions="CenterAndExpand">
+                    <Image
+                        Aspect="AspectFill"
+                        HeightRequest="25"
+                        HorizontalOptions="Start"
+                        Source="usericon.svg"
+                        VerticalOptions="Center"
+                        WidthRequest="25" />
 
-                    <Entry x:Name="txtPass"
-                           Placeholder="{extensionTrans:Translate Key = {x:Static langSource:LanguageKey.PassWord}}"
-                           TextChanged="ChangeInputPass"
-                           WidthRequest="280"
-                           IsPassword="True"
-                           Text="{Binding PassWord.Value,Mode=TwoWay}"
-                           VerticalOptions="Center" />
+                    <Entry
+                        x:Name="txtPass"
+                        IsPassword="True"
+                        Placeholder="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.PassWord}}"
+                        Text="{Binding PassWord.Value, Mode=TwoWay}"
+                        TextChanged="ChangeInputPass"
+                        VerticalOptions="Center"
+                        WidthRequest="280" />
                 </StackLayout>
             </Frame>
             <StackLayout Grid.Row="1">
                 <Label
                     Margin="0,10,20,0"
-                    HorizontalTextAlignment="Start"
                     FontSize="Micro"
+                    HorizontalTextAlignment="Start"
                     IsVisible="{Binding PassWord.HasErrors}"
                     Text="{Binding PassWord.Error}"
                     TextColor="Red" />
             </StackLayout>
 
-            <ImageButton x:Name="ImagePass"
-                   Source="eyeslash.png"
-                   Margin="10"
-                   HeightRequest="20"
-                   WidthRequest="20"
-                   Aspect="AspectFill"
-                   Clicked="OnImageTapped"
-                   HorizontalOptions="End"
-                   VerticalOptions="Center"
-                   />
+            <ImageButton
+                x:Name="ImagePass"
+                Margin="10"
+                Aspect="AspectFill"
+                Clicked="OnImageTapped"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                Source="eyeslash.png"
+                VerticalOptions="Center"
+                WidthRequest="20" />
 
         </Grid>
 
-        <!--Check box lưu mật khẩu, quên mật khẩu-->
+        <!--  Check box lưu mật khẩu, quên mật khẩu  -->
 
         <Grid Grid.Row="3" Margin="15,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="160" />
             </Grid.ColumnDefinitions>
 
-            <CheckBox IsChecked="False" Grid.Column="0" />
-            <Label Style="{StaticResource Grid.Label}" FontSize="Micro" Grid.Column="1" 
-                   Text="{extensionTrans:Translate Key = {x:Static langSource:LanguageKey.AuToLogin}}"></Label>
-            <Label Style="{StaticResource Grid.Label}" FontSize="Micro" TextDecorations="Underline"  Grid.Column="2" 
-                   Text="{extensionTrans:Translate Key = {x:Static langSource:LanguageKey.LossPass}}"></Label>
+            <CheckBox Grid.Column="0" IsChecked="False" />
+            <Label
+                Grid.Column="1"
+                FontSize="Micro"
+                Style="{StaticResource Grid.Label}"
+                Text="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.AuToLogin}}" />
+            <Label
+                Grid.Column="2"
+                FontSize="Micro"
+                Style="{StaticResource Grid.Label}"
+                Text="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.LossPass}}"
+                TextDecorations="Underline" />
         </Grid>
 
-        <!--Button Lưu-->
-        <StackLayout Grid.Row="4" >
-            <Frame CornerRadius="25" HeightRequest="40" WidthRequest="320" Padding="0" BackgroundColor="Transparent" BorderColor="Blue" HasShadow="True">
-                <Button x:Name="ButtonSubmit" 
-                        Text="{extensionTrans:Translate Key = {x:Static langSource:LanguageKey.Login}}" 
-                        IsEnabled="{Binding IsEnableButtonSubmit,Mode=TwoWay}" 
-                        TextColor="White" Padding="10, 5" Clicked="SaveButton_Clicked">
+        <!--  Button Lưu  -->
+        <StackLayout Grid.Row="4">
+            <Frame
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="Blue"
+                CornerRadius="25"
+                HasShadow="True"
+                HeightRequest="40"
+                WidthRequest="320">
+                <Button
+                    x:Name="ButtonSubmit"
+                    Padding="10,5"
+                    Clicked="SaveButton_Clicked"
+                    IsEnabled="{Binding IsEnableButtonSubmit, Mode=TwoWay}"
+                    Text="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.Login}}"
+                    TextColor="White">
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#3F8CFF" Offset="0.0" />
-                            <GradientStop Color="{Binding IsEnableButtonSubmit, Converter={StaticResource BoolToColorConverter}}" Offset="1.0" />
+                            <GradientStop Offset="0.0" Color="#3F8CFF" />
+                            <GradientStop Offset="1.0" Color="{Binding IsEnableButtonSubmit, Converter={StaticResource BoolToColorConverter}}" />
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
