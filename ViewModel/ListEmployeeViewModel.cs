@@ -28,6 +28,8 @@ namespace TutorialMaUI.ViewModel
 
         public ICommand LoadMoreItemsCommand { get; private set; }
         public ICommand GetDetailDataCommand { get; private set; }
+        public ICommand GetDetailDataOnRowCommand { get; private set; }
+
         public ICommand SaveDataCommand { get; private set; }
         public ICommand DeleteDataCommand { get; private set; }
         public ICommand GetDataByKeyWordCommand { get; private set; }
@@ -61,40 +63,49 @@ namespace TutorialMaUI.ViewModel
             Task.Run(async () => await GetListData(Keyword));
             LoadMoreItemsCommand = new Command<object>((obj) => LoadMoreItems());
             GetDetailDataCommand = new Command<object>((obj) => GetDetailData(obj));
+            GetDetailDataOnRowCommand = new Command<object>((obj) => GetDetailData(obj));
             DeleteDataCommand = new Command<object>((obj) => DeleteData(obj));
             AddStaffCommand = new Command(() => AddStaff());
-            GetDataByKeyWordCommand = new Command(() => GetListData(Keyword));
+            GetDataByKeyWordCommand = new Command(async () => await GetListData(Keyword));
         }
 
         public void GetDetailData(object obj)
         {
-            if (obj != null)
+            try
             {
-                var selected = new AdminStaffResponse();
+                if (obj != null)
+                {
+                    var selected = new AdminStaffResponse();
 
-                if (obj is AdminStaffResponse)
-                {
-                    selected = (AdminStaffResponse)obj;
+                    if (obj is AdminStaffResponse)
+                    {
+                        selected = (AdminStaffResponse)obj;
+                    }
+                    else
+                    {
+                        var dataItem = obj.GetType().GetProperty("DataItem")?.GetValue(obj);
+                        selected = (AdminStaffResponse)dataItem;
+                    }
+                    var popup = new EmployeeDetail(selected, listAll);
+                    _page.ShowPopup(popup);
                 }
-                else
-                {
-                    var dataItem = obj.GetType().GetProperty("DataItem")?.GetValue(obj);
-                    selected = (AdminStaffResponse)dataItem;
-                }
-                var popup = new EmployeeDetail(selected);
-                _page.ShowPopup(popup);
             }
+            catch (Exception ex)
+            {
+                LogHelper.Warning(ex.Message);
+            }
+
         }
 
         public void AddStaff()
         {
-            var popup = new EmployeeDetail(null);
+            var popup = new EmployeeDetail(null, listAll);
             _page.ShowPopup(popup);
         }
 
         public async void DeleteData(object obj)
         {
-            if (obj != null && obj is AdminStaffResponse data)
+            if (obj is AdminStaffResponse data)
             {
                 var textNotifi = $"Bạn có chắc chắn muốn xóa lái xe {data.StaffName} ?";
                 var popup = new PopupConfirm(textNotifi);

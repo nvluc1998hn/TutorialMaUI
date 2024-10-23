@@ -9,6 +9,7 @@ namespace TutorialMaUI.Helper
         {
             AdminStaffResponse adminStaffViewModel = new AdminStaffResponse();
             adminStaffViewModel.Id = staffValid.Id;
+            adminStaffViewModel.StaffCode = staffValid.StaffCode;
             adminStaffViewModel.StaffName = staffValid.StaffName.Value;
             adminStaffViewModel.Address = staffValid.Address.Value;
             adminStaffViewModel.Phone = staffValid.Phone.Value;
@@ -23,6 +24,7 @@ namespace TutorialMaUI.Helper
         {
             StaffValid staffValid = new StaffValid();
             staffValid.Id = adminStaffResponse.Id;
+            staffValid.StaffCode = adminStaffResponse.StaffCode;
             staffValid.StaffName.Value = adminStaffResponse.StaffName;
             staffValid.Address.Value = adminStaffResponse.Address;
             staffValid.Phone.Value = adminStaffResponse.Phone;

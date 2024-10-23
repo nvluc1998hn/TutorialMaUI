@@ -22,11 +22,12 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <extension:DateFormatConverter x:Key="DateFormatConverter" />
+            <extension:Base64ToImageSourceConverter x:Key="Base64ToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout>
-        <StackLayout BackgroundColor="White">
+    <Grid RowDefinitions="Auto,*">
+        <StackLayout Grid.Row="0" BackgroundColor="White">
             <Border
                 Margin="15,10,15,10"
                 Padding="0"
@@ -75,6 +76,7 @@
 
 
         <syncfusion:SfListView
+            Grid.Row="1"
             AllowSwiping="True"
             AutoFitMode="DynamicHeight"
             ItemSize="100"
@@ -83,7 +85,7 @@
             LoadMoreOption="AutoOnScroll"
             SelectedItem="{Binding .}"
             SwipeOffset="120"
-            TapCommand="{Binding Source={x:Reference root}, Path=BindingContext.GetDetailDataCommand}">
+            TapCommand="{Binding Source={x:Reference root}, Path=BindingContext.GetDetailDataOnRowCommand}">
 
             <syncfusion:SfListView.DataSource>
                 <data:DataSource>
@@ -131,6 +133,7 @@
                                         Grid.Column="0"
                                         HeightRequest="20"
                                         Source="edit.png"
+                                        VerticalOptions="Center"
                                         WidthRequest="20" />
                                 </Grid>
                                 <Label HorizontalOptions="Center" Text="Sửa" />
@@ -169,7 +172,7 @@
                     <Grid
                         HorizontalOptions="FillAndExpand"
                         RowDefinitions="Auto,1"
-                        RowSpacing="10">
+                        RowSpacing="8">
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
@@ -177,6 +180,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Border
+                                Margin="0"
                                 Padding="0"
                                 HeightRequest="55"
                                 HorizontalOptions="Center"
@@ -188,9 +192,11 @@
                                 <Image
                                     Aspect="AspectFill"
                                     HeightRequest="55"
-                                    Source="{Binding Image}"
+                                    Source="{Binding Image, Converter={StaticResource Base64ToImageSourceConverter}}"
+                                    VerticalOptions="Center"
                                     WidthRequest="55" />
                             </Border>
+
                             <StackLayout Grid.Column="1" VerticalOptions="Center">
                                 <Label FontAttributes="Bold" Text="{Binding StaffName}" />
                                 <Label Text="{Binding PartName}" />
@@ -220,7 +226,7 @@
         </syncfusion:SfListView>
 
 
-    </StackLayout>
+    </Grid>
 
 
 </ContentPage>

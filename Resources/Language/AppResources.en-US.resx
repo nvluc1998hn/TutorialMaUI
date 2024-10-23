@@ -138,6 +138,9 @@
   <data name="EmailValid" xml:space="preserve">
     <value>Email Valid</value>
   </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
   <data name="ForbiddenCharacters" xml:space="preserve">
     <value>Không được phép chứa các ký tự cấm ^'`~!@#$%^*()\_+={}[\]:;|\\,.?</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="LossPass" xml:space="preserve">
     <value>Loss Pass ?</value>
   </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} max 50 character</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="NotificationPopup" xml:space="preserve">
     <value>NotificationPopup</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>PassWord</value>

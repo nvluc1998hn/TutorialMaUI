@@ -1,5 +1,6 @@
 ﻿using Common.Library.Helper;
 using Common.Library.RestAPI;
+using TutorialMaUI.Resources.Language;
 using TutorialMaUI.Service.Interface;
 using TutorialMaUI.ViewModel.Respond;
 
@@ -15,9 +16,9 @@ namespace TutorialMaUI.Service
         private IServiceCommunication _serviceCommunication;
         private static Dictionary<int, string> DicPart = new Dictionary<int, string>()
         {
-             { 0, "Nhân viên" },
-             { 1, "Trưởng phòng" },
-             { 2, "Giám đốc" }
+             { 0, AppResources.Staff },
+             { 1, AppResources.HeadOfDepartment },
+             { 2, AppResources.Manager }
         };
 
         public AdminStaffService(IServiceCommunication serviceCommunication)

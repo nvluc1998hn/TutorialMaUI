@@ -15,15 +15,15 @@ namespace TutorialMaUI
 
             _serviceCommunication = serviceCommunication;
 
-            var navigationPage = new NavigationPage(new StackLayOutDemo(_serviceCommunication));
-
-            MainPage = navigationPage;
-
             SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1NpR2FGfV5ycEVHYVZRRHxaSk0DNHVRdkdnWH9fdXZWRmBZWUBxX0c=");
 
             Translator.Instance.CultureInfo = new CultureInfo("");
 
             CultureInfo.CurrentUICulture = new CultureInfo("");
+
+            var navigationPage = new NavigationPage(new StackLayOutDemo(_serviceCommunication));
+
+            MainPage = navigationPage;
 
         }
     }

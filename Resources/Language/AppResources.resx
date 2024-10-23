@@ -138,8 +138,17 @@
   <data name="EmailValid" xml:space="preserve">
     <value>Sai định dạng Email</value>
   </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Nhân viên</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
   <data name="ForbiddenCharacters" xml:space="preserve">
     <value>Không được phép chứa các ký tự cấm ^'`~!@#$%^*()\_+={}[\]:;|\\,.?</value>
+  </data>
+  <data name="HeadOfDepartment" xml:space="preserve">
+    <value>Trưởng phòng</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Đăng nhập</value>
@@ -150,6 +159,12 @@
   <data name="LossPass" xml:space="preserve">
     <value>Quên mật khẩu ?</value>
   </data>
+  <data name="Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Giám đốc</value>
+  </data>
   <data name="MaxLength50" xml:space="preserve">
     <value>{0} tối đa 50 ký tự</value>
   </data>
@@ -158,6 +173,9 @@
   </data>
   <data name="NotificationPopup" xml:space="preserve">
     <value>Thông báo</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Khác</value>
   </data>
   <data name="PassWord" xml:space="preserve">
     <value>Mật khẩu</value>
@@ -173,6 +191,9 @@
   </data>
   <data name="Sex" xml:space="preserve">
     <value>Giới tính</value>
+  </data>
+  <data name="Staff" xml:space="preserve">
+    <value>Nhân viên</value>
   </data>
   <data name="StaffName" xml:space="preserve">
     <value>Tên nhân viên</value>

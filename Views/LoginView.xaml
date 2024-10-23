@@ -75,7 +75,7 @@
                     Padding="0"
                     HorizontalOptions="FillAndExpand"
                     Orientation="Horizontal"
-                    Spacing="10"
+                    Spacing="20"
                     VerticalOptions="CenterAndExpand">
                     <Image
                         Aspect="AspectFill"
@@ -117,15 +117,16 @@
                     Padding="0"
                     HorizontalOptions="FillAndExpand"
                     Orientation="Horizontal"
-                    Spacing="10"
+                    Spacing="8"
                     VerticalOptions="CenterAndExpand">
                     <Image
+                        Margin="3,0"
                         Aspect="AspectFill"
-                        HeightRequest="25"
+                        HeightRequest="18"
                         HorizontalOptions="Start"
-                        Source="usericon.svg"
+                        Source="userlock.svg"
                         VerticalOptions="Center"
-                        WidthRequest="25" />
+                        WidthRequest="15" />
 
                     <Entry
                         x:Name="txtPass"

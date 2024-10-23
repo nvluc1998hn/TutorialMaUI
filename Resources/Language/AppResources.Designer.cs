@@ -124,11 +124,38 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nhân viên.
+        /// </summary>
+        internal static string Employee {
+            get {
+                return ResourceManager.GetString("Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nữ.
+        /// </summary>
+        internal static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không được phép chứa các ký tự cấm ^&apos;`~!@#$%^*()\_+={}[\]:;|\\,.?.
         /// </summary>
         internal static string ForbiddenCharacters {
             get {
                 return ResourceManager.GetString("ForbiddenCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trưởng phòng.
+        /// </summary>
+        internal static string HeadOfDepartment {
+            get {
+                return ResourceManager.GetString("HeadOfDepartment", resourceCulture);
             }
         }
         
@@ -160,6 +187,24 @@ namespace TutorialMaUI.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nam.
+        /// </summary>
+        internal static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giám đốc.
+        /// </summary>
+        internal static string Manager {
+            get {
+                return ResourceManager.GetString("Manager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} tối đa 50 ký tự.
         /// </summary>
         internal static string MaxLength50 {
@@ -183,6 +228,15 @@ namespace TutorialMaUI.Resources.Language {
         internal static string NotificationPopup {
             get {
                 return ResourceManager.GetString("NotificationPopup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khác.
+        /// </summary>
+        internal static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
             }
         }
         
@@ -228,6 +282,15 @@ namespace TutorialMaUI.Resources.Language {
         internal static string Sex {
             get {
                 return ResourceManager.GetString("Sex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhân viên.
+        /// </summary>
+        internal static string Staff {
+            get {
+                return ResourceManager.GetString("Staff", resourceCulture);
             }
         }
         

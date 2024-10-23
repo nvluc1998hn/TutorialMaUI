@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
 
+        public string StaffCode { get; set; }
+
         public string StaffName { get; set; }
 
         public string Address { get; set; }

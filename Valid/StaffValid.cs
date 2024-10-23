@@ -15,16 +15,30 @@ namespace TutorialMaUI.Valid
     {
         public int Id { get; set; }
 
+        public string StaffCode { get; set; }
+
+        /// <summary>
+        /// Tên nhân viên
+        /// </summary>
         public Validatable<string> StaffName { get; set; } = new Validatable<string>();
 
+        /// <summary>
+        /// Địa chỉ
+        /// </summary>
         public Validatable<string> Address { get; set; } = new Validatable<string>();
 
         public Validatable<string> Phone { get; set; } = new Validatable<string>();
 
         public Validatable<string> Email { get; set; } = new Validatable<string>();
 
+        /// <summary>
+        /// Link ảnh (chưa dùng đang fix cứng)
+        /// </summary>
         public Validatable<string> Image { get; set; } = new Validatable<string>();
 
+        /// <summary>
+        /// Phòng ban nào 0 nhân viên , 1 giám đốc , 2 giám đốc
+        /// </summary>
         public int Part { get; set; }
 
         public int Sex { get; set; }
@@ -34,7 +48,7 @@ namespace TutorialMaUI.Valid
         // Combox giới tính
         public ObservableCollection<Gender> GenderOptions { get; set; }
 
-        // Combox chức vụ
+        // Combox chức vụ, phòng ban
         public ObservableCollection<Parts> PartsOptions { get; set; }
 
 
@@ -57,6 +71,7 @@ namespace TutorialMaUI.Valid
 
             StaffName = Validator.Build<string>().IsRequired(passMessageValid).WithMaxLengthStrRule(50, messageMaxLength).WithRegularExpression(pattern, AppResources.ForbiddenCharacters);
 
+
             string addressValid = string.Format(AppResources.Required, AppResources.Address);
             string addMessageMaxLength = string.Format(AppResources.MaxLength50, AppResources.Address);
 
@@ -72,6 +87,7 @@ namespace TutorialMaUI.Valid
 
             Phone = Validator.Build<string>().IsRequired(phoneValid);
 
+
         }
 
         public bool Validate()
@@ -81,16 +97,16 @@ namespace TutorialMaUI.Valid
 
         void CreateGenderCollection()
         {
-            source.Add(new Gender { Id = 0, Name = "Nam" });
-            source.Add(new Gender { Id = 1, Name = "Nữ" });
-            source.Add(new Gender { Id = 2, Name = "Khác" });
+            source.Add(new Gender { Id = 0, Name = AppResources.Male });
+            source.Add(new Gender { Id = 1, Name = AppResources.Female });
+            source.Add(new Gender { Id = 2, Name = AppResources.Other });
         }
 
         void CreatePartsOption()
         {
-            part.Add(new Parts { Id = 0, Name = "Nhân viên" });
-            part.Add(new Parts { Id = 1, Name = "Trưởng phòng" });
-            part.Add(new Parts { Id = 2, Name = "Giám đốc" });
+            part.Add(new Parts { Id = 0, Name = AppResources.Staff });
+            part.Add(new Parts { Id = 1, Name = AppResources.HeadOfDepartment });
+            part.Add(new Parts { Id = 2, Name = AppResources.Manager });
 
         }
     }

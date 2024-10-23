@@ -27,18 +27,6 @@ public partial class LoginView : ContentPage
         _serviceCommunication = serviceCommunication;
     }
 
-    private string language;
-    public string Language
-    {
-        get => language;
-        set
-        {
-            language = value;
-            OnPropertyChanged(); // Notify the UI of the change
-        }
-    }
-
-
     private async void SaveButton_Clicked(object sender, EventArgs e)
     {
         var isValid = _userLoginValid.Validate();
@@ -62,7 +50,7 @@ public partial class LoginView : ContentPage
                 {
                     isLoginSuccess = true;
                     App.Current.MainPage = new NavigationPage(new ListEmployee());
-                    //   await Navigation.PushAsync(new ListEmployee());
+                    await Navigation.PushAsync(new ListEmployee());
                 }
                 else if (dataResult.Status == LoginStatus.AccountDelete)
                 {

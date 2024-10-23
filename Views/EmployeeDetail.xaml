@@ -3,10 +3,12 @@
     x:Class="TutorialMaUI.Views.EmployeeDetail"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extension="clr-namespace:TutorialMaUI.Extensions"
     xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
     HorizontalOptions="Fill"
     Color="Transparent">
+
     <Border
         Margin="0"
         Padding="0"
@@ -14,7 +16,7 @@
         HeightRequest="400"
         HorizontalOptions="Center"
         StrokeShape="RoundRectangle 20"
-        StrokeThickness="2"
+        StrokeThickness="0"
         VerticalOptions="Center"
         WidthRequest="300">
 
@@ -39,157 +41,202 @@
 
 
             <ScrollView Grid.Row="1">
-                <Grid
-                    ColumnDefinitions="0.4*,0.6*"
-                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-                    RowSpacing="8">
+                <StackLayout>
 
-                    <!--  tên nhân viên  -->
+                    <Border
+                        Margin="5,2"
+                        Padding="0"
+                        HeightRequest="55"
+                        HorizontalOptions="Center"
+                        Stroke="#2874a6"
+                        StrokeShape="RoundRectangle 30"
+                        StrokeThickness="3"
+                        VerticalOptions="Center"
+                        WidthRequest="55">
+                        <Image
+                            x:Name="imageAvata"
+                            Aspect="AspectFill"
+                            HeightRequest="55"
+                            Source="{Binding Image.Value}"
+                            VerticalOptions="Center"
+                            WidthRequest="55" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OpenSelectImage" >
+                                    
+                                </TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                            </Image>
+                    </Border>
+
+                    <Label Margin="10,10,10,5" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Mã nhân viên " />
+                                <Span Text="*" TextColor="Red" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="5,2" Padding="0">
+                        <Entry
+                            IsEnabled="False"
+                            IsReadOnly="True"
+                            Text="{Binding StaffCode}"
+                            VerticalOptions="Center" />
+                    </Frame>
+
+                    <Label Margin="10,10,10,5" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Tên nhân viên " />
+                                <Span Text="*" TextColor="Red" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="5,2" Padding="0">
+                        <Entry
+                            x:Name="entryNameEmployee"
+                            Placeholder="Nhập tên nhân viên "
+                            Text="{Binding StaffName.Value}"
+                            TextChanged="ChangeStaffName"
+                            VerticalOptions="Center" />
+                    </Frame>
                     <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Padding="10"
-                        Text="Tên nhân viên"
-                        VerticalOptions="Center" />
-                    <Entry
-                        x:Name="entryNameEmployee"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Placeholder="Nhập tên nhân viên "
-                        Text="{Binding StaffName.Value}"
-                        TextChanged="ChangeStaffName"
-                        VerticalOptions="Center" />
+                        Margin="10,10,10,5"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Start"
+                        IsVisible="{Binding StaffName.HasErrors}"
+                        Text="{Binding StaffName.Error}"
+                        TextColor="Red" />
 
-                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
-                        <Label
-                            Margin="10,10,10,5"
-                            FontSize="Micro"
-                            HorizontalTextAlignment="Start"
-                            IsVisible="{Binding StaffName.HasErrors}"
-                            Text="{Binding StaffName.Error}"
-                            TextColor="Red" />
-                    </StackLayout>
+                    <!--  Địa chỉ  -->
+                    <Label Margin="10,10,10,5" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Địa chỉ " />
+                                <Span Text="*" TextColor="Red" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="5,2" Padding="0">
+                        <Editor
+                            x:Name="entryEditor"
+                            AutoSize="TextChanges"
+                            MaxLength="40"
+                            Placeholder="Nhập địa chỉ"
+                            Text="{Binding Address.Value}"
+                            TextChanged="ChangeAddress"
+                            VerticalOptions="Center" />
+                    </Frame>
+                    <Label
+                        Margin="5,2"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Start"
+                        IsVisible="{Binding Address.HasErrors}"
+                        Text="{Binding Address.Error}"
+                        TextColor="Red" />
 
-
-                    <!--  Row 2: Địa chỉ  -->
+                    <!--  SĐT  -->
+                    <Label Margin="10,10,10,5" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Số điện thoại " />
+                                <Span Text="*" TextColor="Red" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="5,2" Padding="0">
+                        <Entry
+                            Keyboard="Telephone"
+                            MaxLength="10"
+                            Placeholder="Nhập số điện thoại"
+                            Text="{Binding Phone.Value}"
+                            TextChanged="ChangePhone"
+                            VerticalOptions="Center" />
+                    </Frame>
 
                     <Label
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Padding="10"
-                        Text="Địa chỉ"
-                        VerticalOptions="Center" />
-                    <Editor
-                        x:Name="entryEditor"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        AutoSize="TextChanges"
-                        MaxLength="40"
-                        Placeholder="Nhập địa chỉ"
-                        Text="{Binding Address.Value}"
-                        TextChanged="ChangeAddress"
-                        VerticalOptions="Center" />
-                    <StackLayout Grid.Row="3" Grid.ColumnSpan="2">
-                        <Label
-                            Margin="10,10,10,5"
-                            FontSize="Micro"
-                            HorizontalTextAlignment="Start"
-                            IsVisible="{Binding Address.HasErrors}"
-                            Text="{Binding Address.Error}"
-                            TextColor="Red" />
-                    </StackLayout>
-
-                    <!--  Row 3: Số điện thoại  -->
-
-                    <Label
-                        Grid.Row="4"
-                        Grid.Column="0"
-                        Padding="10"
-                        Text="Số điện thoại"
-                        VerticalOptions="Center" />
-                    <Entry
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        Keyboard="Telephone"
-                        MaxLength="10"
-                        Placeholder="Nhập số điện thoại"
-                        Text="{Binding Phone.Value}"
-                        TextChanged="ChangePhone"
-                        VerticalOptions="Center" />
-                    <StackLayout Grid.Row="5" Grid.ColumnSpan="2">
-                        <Label
-                            Margin="10,10,10,5"
-                            FontSize="Micro"
-                            HorizontalTextAlignment="Start"
-                            IsVisible="{Binding Phone.HasErrors}"
-                            Text="{Binding Phone.Error}"
-                            TextColor="Red" />
-                    </StackLayout>
+                        Margin="10,10,10,5"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Start"
+                        IsVisible="{Binding Phone.HasErrors}"
+                        Text="{Binding Phone.Error}"
+                        TextColor="Red" />
 
                     <!--  Email  -->
+                    <Label Margin="10,10,10,5" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email " />
+                                <Span Text="*" TextColor="Red" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="5,2" Padding="0">
+                        <Entry
+                            Placeholder="Nhập email"
+                            Text="{Binding Email.Value}"
+                            TextChanged="ChangeEmail"
+                            VerticalOptions="Center" />
+                    </Frame>
 
                     <Label
-                        Grid.Row="6"
-                        Grid.Column="0"
-                        Padding="10"
-                        Text="Email"
-                        VerticalOptions="Center" />
-                    <Entry
-                        Grid.Row="6"
-                        Grid.Column="1"
-                        Placeholder="Nhập email"
-                        Text="{Binding Email.Value}"
-                        TextChanged="ChangeEmail"
-                        VerticalOptions="Center" />
-                    <StackLayout Grid.Row="7" Grid.ColumnSpan="2">
-                        <Label
-                            Margin="10,10,20,5"
-                            FontSize="Micro"
-                            HorizontalTextAlignment="Start"
-                            IsVisible="{Binding Email.HasErrors}"
-                            Text="{Binding Email.Error}"
-                            TextColor="Red" />
-                    </StackLayout>
+                        Margin="10,10,20,5"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Start"
+                        IsVisible="{Binding Email.HasErrors}"
+                        Text="{Binding Email.Error}"
+                        TextColor="Red" />
 
-                    <!--  Row 5: Chức vụ  -->
 
                     <Label
-                        Grid.Row="8"
-                        Grid.Column="0"
                         Padding="10"
                         Text="Chức vụ"
                         VerticalOptions="Center" />
-                    <inputs:SfComboBox
-                        Grid.Row="8"
-                        Grid.Column="1"
-                        DisplayMemberPath="Name"
-                        IsClearButtonVisible="False"
-                        ItemsSource="{Binding PartsOptions}"
-                        SelectedValue="{Binding Part}"
-                        SelectedValuePath="Id" />
+
+                    <Border
+                        Margin="5,2"
+                        Padding="0"
+                        HeightRequest="50"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1">
+                        <inputs:SfComboBox
+                            DisplayMemberPath="Name"
+                            IsClearButtonVisible="False"
+                            ItemsSource="{Binding PartsOptions}"
+                            SelectedValue="{Binding Part}"
+                            SelectedValuePath="Id" />
+                    </Border>
+
 
                     <Label
-                        Grid.Row="9"
-                        Grid.Column="0"
                         Padding="10"
                         Text="Giới tính"
                         VerticalOptions="Center" />
 
-                    <inputs:SfComboBox
-                        Grid.Row="9"
-                        Grid.Column="1"
-                        DisplayMemberPath="Name"
-                        IsClearButtonVisible="False"
-                        ItemsSource="{Binding GenderOptions}"
-                        SelectedValue="{Binding Sex}"
-                        SelectedValuePath="Id" />
+                    <Border
+                        Margin="5,2"
+                        Padding="0"
+                        HeightRequest="50"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1">
+                        <inputs:SfComboBox
+                            DisplayMemberPath="Name"
+                            IsClearButtonVisible="False"
+                            ItemsSource="{Binding GenderOptions}"
+                            SelectedValue="{Binding Sex}"
+                            SelectedValuePath="Id" />
+                    </Border>
 
-                </Grid>
+
+
+                </StackLayout>
+
             </ScrollView>
 
-
+            <StackLayout Grid.Row="2" HeightRequest="16" />
             <StackLayout
-                Grid.Row="2"
+                Grid.Row="3"
+                Margin="0,0,0,10"
                 HorizontalOptions="Center"
                 Orientation="Horizontal"
                 VerticalOptions="Center">
@@ -197,6 +244,7 @@
                     Clicked="OnSaveClick"
                     HeightRequest="37"
                     Text="Lưu"
+                    VerticalOptions="Center"
                     WidthRequest="100" />
                 <Button
                     Margin="15,0"
@@ -204,6 +252,7 @@
                     Clicked="ClosePopup"
                     HeightRequest="37"
                     Text="Đóng"
+                    VerticalOptions="Center"
                     WidthRequest="100" />
             </StackLayout>
 
