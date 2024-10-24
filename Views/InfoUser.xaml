@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TutorialMaUI.Views.InfoUser"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Thông tin tài khoản">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="LogOut"
+            IconImageSource="logout.png"
+            Text="Đăng xuất" />
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout
+        Margin="10,10,10,5"
+        Spacing="10"
+        VerticalOptions="Start">
+        <HorizontalStackLayout>
+            <Label Text="Tên tài khoản: " />
+            <Label FontFamily="Bold" Text="{Binding UserName}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Tên người dùng: " />
+            <Label FontFamily="Bold" Text="{Binding FullName}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Số điện thoại: " />
+            <Label FontFamily="Bold" Text="{Binding PhoneNumber}" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>  

@@ -108,6 +108,9 @@
 		<MauiXaml Update="Pages\StackLayOutDemo.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Platforms\Windows\App.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="PopUp\PopupConfirm.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

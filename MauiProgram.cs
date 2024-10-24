@@ -32,6 +32,11 @@ namespace TutorialMaUI
             builder.ConfigureMauiHandlers((handlers) =>
              {
                  handlers.ConfigureHandlers();
+#if ANDROID
+                 handlers.AddHandler<Controls.CustomControls.StandarEntry, TutorialMaUI.Platforms.Android.CustomEntryHandler>();
+
+
+#endif
              });
 
             Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping("EditorCustomization", (handler, view) =>
@@ -40,6 +45,16 @@ namespace TutorialMaUI
                 // Remove underline on Android
                 handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
 #endif
+            });
+
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
+            {
+                if (view is Controls.CustomControls.StandarEntry)
+                {
+#if ANDROID
+                       handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);     
+#endif
+                }
             });
 
             builder.Services.AddSingleton<IServiceCommunication, ServiceCommunication>();

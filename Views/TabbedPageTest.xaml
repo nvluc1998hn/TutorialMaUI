@@ -7,9 +7,7 @@
     xmlns:p="clr-namespace:TutorialMaUI.Views"
     Title="TabbedPageTest"
     android:TabbedPage.ToolbarPlacement="Bottom">
-    <p:ListEmployee />
-    <ContentPage>
-        <Label Text="abc" TextColor="Red" />
-    </ContentPage>
+    <p:ListEmployee IconImageSource="homeregular24.png" />
+    <p:InfoUser IconImageSource="usericon.png" />
 </TabbedPage>
 

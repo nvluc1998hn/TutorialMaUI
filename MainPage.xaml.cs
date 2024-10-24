@@ -1,13 +1,10 @@
-﻿using TutorialMaUI.Pages;
-
-namespace TutorialMaUI
+﻿namespace TutorialMaUI
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
-
         }
     }
 

@@ -2,7 +2,6 @@
 using Syncfusion.Licensing;
 using System.Globalization;
 using TutorialMaUI.Extensions;
-using TutorialMaUI.Pages;
 
 namespace TutorialMaUI
 {
@@ -21,7 +20,7 @@ namespace TutorialMaUI
 
             CultureInfo.CurrentUICulture = new CultureInfo("");
 
-            var navigationPage = new NavigationPage(new StackLayOutDemo(_serviceCommunication));
+            var navigationPage = new NavigationPage(new Pages.StackLayOutDemo(_serviceCommunication));
 
             MainPage = navigationPage;
 

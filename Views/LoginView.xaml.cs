@@ -6,6 +6,7 @@ using TutorialMaUI.Enums;
 using TutorialMaUI.Extensions;
 using TutorialMaUI.Models;
 using TutorialMaUI.Pages;
+using TutorialMaUI.Service;
 using TutorialMaUI.Valid;
 using TutorialMaUI.ViewModel.Respond;
 
@@ -22,6 +23,15 @@ public partial class LoginView : ContentPage
     {
         InitializeComponent();
         _userLoginValid = new UserLoginValid();
+        bool autoLogin = Preferences.Get(nameof(PreferencesEnum.AutoLogin), false);
+        if (autoLogin)
+        {
+            string userName = Preferences.Default.Get(nameof(PreferencesEnum.UserName), "Unknown");
+            string passWord = Preferences.Default.Get(nameof(PreferencesEnum.PassWord), "Unknown");
+            _userLoginValid.UserName.Value = userName;
+            _userLoginValid.PassWord.Value = passWord;
+            _userLoginValid.AutoLogin = true;
+        }
         BindingContext = _userLoginValid;
         labelLangueControl.Text = "Việt Nam";
         _serviceCommunication = serviceCommunication;
@@ -49,8 +59,25 @@ public partial class LoginView : ContentPage
                 if (dataResult.Status == LoginStatus.Success)
                 {
                     isLoginSuccess = true;
-                    App.Current.MainPage = new NavigationPage(new ListEmployee());
-                    await Navigation.PushAsync(new ListEmployee());
+                    var service = Singleton<CommonService>.Instance;
+
+                    // Set thông tin 
+                    if (_userLoginValid.AutoLogin)
+                    {
+                        Preferences.Default.Set(nameof(PreferencesEnum.UserName), _userLoginValid.UserName.Value);
+                        Preferences.Default.Set(nameof(PreferencesEnum.PassWord), _userLoginValid.PassWord.Value);
+                        Preferences.Default.Set(nameof(PreferencesEnum.AutoLogin), true);
+                    }
+                    else
+                    {
+                        Preferences.Default.Remove(nameof(PreferencesEnum.UserName));
+                        Preferences.Default.Remove(nameof(PreferencesEnum.PassWord));
+                        Preferences.Default.Remove(nameof(PreferencesEnum.AutoLogin));
+                    }
+
+                    service.InfoUser = dataResult;
+                    App.Current.MainPage = new NavigationPage(new TabbedPageTest());
+                    await Navigation.PushAsync(new TabbedPageTest());
                 }
                 else if (dataResult.Status == LoginStatus.AccountDelete)
                 {
@@ -126,5 +153,11 @@ public partial class LoginView : ContentPage
 
         Translator.Instance.CultureInfo = new CultureInfo(selectedValue.IsoCode);
         Translator.Instance.OnPropetyChanged();
+    }
+
+    private void AutoLoginClick(object sender, TappedEventArgs e)
+    {
+        _userLoginValid.AutoLogin = !_userLoginValid.AutoLogin;
+
     }
 }

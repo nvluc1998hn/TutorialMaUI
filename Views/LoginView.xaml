@@ -7,8 +7,7 @@
     xmlns:extensionTrans="clr-namespace:TutorialMaUI.Extensions"
     xmlns:lang="clr-namespace:TutorialMaUI.Resources.Language"
     xmlns:langSource="clr-namespace:Common.Library.LanguageKeys;assembly=Common.Library"
-    xmlns:vm="clr-namespace:TutorialMaUI.Valid"
-    Title="{extensionTrans:Translate Key={x:Static langSource:LanguageKey.MenuLoginTitle}}">
+    xmlns:vm="clr-namespace:TutorialMaUI.Valid">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -170,7 +169,11 @@
                 <ColumnDefinition Width="160" />
             </Grid.ColumnDefinitions>
 
-            <CheckBox Grid.Column="0" IsChecked="False" />
+            <CheckBox Grid.Column="0" IsChecked="{Binding AutoLogin}">
+                <CheckBox.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AutoLoginClick" />
+                </CheckBox.GestureRecognizers>
+            </CheckBox>
             <Label
                 Grid.Column="1"
                 FontSize="Micro"

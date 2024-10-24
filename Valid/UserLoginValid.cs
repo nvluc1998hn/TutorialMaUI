@@ -1,7 +1,7 @@
 ﻿using Common.Library.LanguageKeys;
+using LocalizationResourceManager.Maui.ComponentModel;
 using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
-using System.ComponentModel;
 using TutorialMaUI.Extensions;
 using TutorialMaUI.Validations;
 
@@ -12,7 +12,7 @@ namespace TutorialMaUI.Valid
     /// </summary>
     /// Author: lucnv
     /// Created: 09/10/2024
-    public class UserLoginValid : INotifyPropertyChanged
+    public class UserLoginValid : ObservableObject
     {
         public Validatable<string> UserName { get; set; }
 
@@ -25,8 +25,18 @@ namespace TutorialMaUI.Valid
             get => _isEnableButtonSubmit;
             set
             {
-                _isEnableButtonSubmit = value;
-                OnPropertyChanged(nameof(IsEnableButtonSubmit));  // Ensure this is triggered
+                SetProperty(ref _isEnableButtonSubmit, value);
+            }
+        }
+
+        private bool _autoLogin;
+
+        public bool AutoLogin
+        {
+            get => _autoLogin;
+            set
+            {
+                SetProperty(ref _autoLogin, value);
             }
         }
 
@@ -46,11 +56,5 @@ namespace TutorialMaUI.Valid
             return PassWord.Validate() && UserName.Validate();
         }
 
-        // Notify the UI of changes
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
