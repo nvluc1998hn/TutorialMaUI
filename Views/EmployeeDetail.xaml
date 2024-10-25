@@ -42,31 +42,39 @@
 
             <ScrollView Grid.Row="1">
                 <StackLayout>
-
-                    <Border
-                        Margin="5,2"
-                        Padding="0"
+                    <AbsoluteLayout
                         HeightRequest="55"
                         HorizontalOptions="Center"
-                        Stroke="#2874a6"
-                        StrokeShape="RoundRectangle 30"
-                        StrokeThickness="3"
                         VerticalOptions="Center"
                         WidthRequest="55">
-                        <Image
-                            x:Name="imageAvata"
-                            Aspect="AspectFill"
-                            HeightRequest="55"
-                            Source="{Binding Image.Value}"
-                            VerticalOptions="Center"
-                            WidthRequest="55" >
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OpenSelectImage" >
-                                    
-                                </TapGestureRecognizer>
-                            </Image.GestureRecognizers>
+
+                        <!--  Avatar Image with Border  -->
+                        <Border
+                            Margin="5,2"
+                            Padding="0"
+                            Stroke="#2874a6"
+                            StrokeShape="RoundRectangle 30"
+                            StrokeThickness="3">
+                            <Image
+                                x:Name="imageAvata"
+                                Aspect="AspectFill"
+                                HeightRequest="55"
+                                Source="{Binding Image.Value}"
+                                WidthRequest="55">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OpenSelectImage" />
+                                </Image.GestureRecognizers>
                             </Image>
-                    </Border>
+                        </Border>
+
+                        <Image
+                            AbsoluteLayout.LayoutBounds="1.2,0,15,15"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            HeightRequest="15"
+                            Source="bxcamera.svg"
+                            WidthRequest="15" />
+                    </AbsoluteLayout>
+
 
                     <Label Margin="10,10,10,5" VerticalOptions="Center">
                         <Label.FormattedText>

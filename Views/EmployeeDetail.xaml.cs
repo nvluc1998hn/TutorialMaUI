@@ -1,8 +1,9 @@
 ﻿using CommunityToolkit.Maui.Views;
+using TutorialMaUI.Enums;
 using TutorialMaUI.Helper;
+using TutorialMaUI.PopUp;
 using TutorialMaUI.Valid;
 using TutorialMaUI.ViewModel.Respond;
-
 namespace TutorialMaUI.Views;
 
 /// <summary>
@@ -128,7 +129,64 @@ public partial class EmployeeDetail : Popup
         }
     }
 
-    private async void OpenSelectImage(object sender, EventArgs e)
+    private void OpenSelectImage(object sender, EventArgs e)
+    {
+        var pop = new PopupInfoCamera(!string.IsNullOrEmpty(staffValid.Image.Value), staffValid.Image.Value);
+        Application.Current.MainPage.ShowPopup(pop);
+
+        pop.Accepted += async (s, args) =>
+        {
+            var action = (ImageCameraEnum)s;
+
+            switch (action)
+            {
+                case ImageCameraEnum.DetailImage:
+
+                    break;
+                case ImageCameraEnum.TakeCamera:
+                    TakeImage();
+                    break;
+                case ImageCameraEnum.ChosseFromDevice:
+                    ChoseImageFromDevice();
+                    break;
+
+                case ImageCameraEnum.DeleteImage:
+                    imageAvata.Source = "";
+                    staffValid.Image.Value = "";
+                    break;
+
+                default:
+                    // Thực hiện hành động mặc định nếu không có case nào trùng khớp
+                    break;
+            }
+
+        };
+    }
+
+    private async void TakeImage()
+    {
+        try
+        {
+            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+
+            if (photo != null)
+            {
+                // save the file into local storage
+                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
+                using Stream sourceStream = await photo.OpenReadAsync();
+                using FileStream localFileStream = File.OpenWrite(localFilePath);
+
+                await sourceStream.CopyToAsync(localFileStream);
+            }
+        }
+        catch (Exception ex)
+        {
+            await Application.Current.MainPage.DisplayAlert("Lỗi", $"Không thể chọn hình ảnh: {ex.Message}", "OK");
+        }
+    }
+
+    private async void ChoseImageFromDevice()
     {
         try
         {
@@ -177,4 +235,6 @@ public partial class EmployeeDetail : Popup
             await Application.Current.MainPage.DisplayAlert("Lỗi", $"Không thể chọn hình ảnh: {ex.Message}", "OK");
         }
     }
+
+
 }

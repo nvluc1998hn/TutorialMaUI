@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup
+    x:Class="TutorialMaUI.PopUp.DetailImagePopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui">
+    <Image
+        x:Name="imageAvata"
+        Aspect="AspectFill"
+        Source="{Binding ImageUrl}" />
+</mct:Popup>
