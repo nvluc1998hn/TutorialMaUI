@@ -1,64 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorialMaUI.Pages.GridLayOutDemo"
-             Title="Grid LayOut Demo">
-    <Grid ColumnSpacing="10" RowSpacing="10">
-        <!--Dòng-->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition  Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-        </Grid.RowDefinitions>
-        <!--cột-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="auto" >
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">00</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="1">01</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="2">02</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="3">03</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="4">0xx4</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="5">05</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="6">06</Label>
-        <Label Background="#7c7c7c" Grid.Row="0" Grid.Column="7">07</Label>
-
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="0">10</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="1">11</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="2">12</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="3">13</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="4">14</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="5">15</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="6">16</Label>
-        <Label Background="#7c7c7c" Grid.Row="1" Grid.Column="7">17xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</Label>
-
-    </Grid>
+<ContentPage
+    x:Class="TutorialMaUI.Pages.GridLayOutDemo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TutorialMaUI.Controls.CustomControls"
+    Title="Grid LayOut Demo">
+    <local:MyImage Source="start.png"  TintColor="Pink"/>
 </ContentPage>
