@@ -1,5 +1,6 @@
 ﻿using Common.Library.RestAPI;
 using CommunityToolkit.Maui;
+using Maui.GoogleMaps.Hosting;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 using TutorialMaUI.Extensions;
@@ -29,6 +30,24 @@ namespace TutorialMaUI
             builder.Logging.AddDebug();
             builder.ConfigureSyncfusionCore();
 #endif
+
+#if ANDROID
+            var platformConfig = new Maui.GoogleMaps.Android.PlatformConfig
+            {
+                BitmapDescriptorFactory = new TutorialMaUI.Platforms.Android.CachingNativeBitmapDescriptorFactory()
+            };
+
+            builder.UseGoogleMaps(platformConfig);
+#elif IOS
+            var platformConfig = new Maui.GoogleMaps.iOS.PlatformConfig
+            {
+                ImageFactory = new Platforms.iOS.CachingImageFactory()
+            };
+
+            builder.UseGoogleMaps(Variables.GOOGLE_MAPS_IOS_API_KEY, platformConfig);
+#endif
+
+
             builder.ConfigureMauiHandlers((handlers) =>
              {
                  handlers.ConfigureHandlers();
@@ -52,7 +71,7 @@ namespace TutorialMaUI
                 if (view is Controls.CustomControls.StandarEntry)
                 {
 #if ANDROID
-                       handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);     
+                    handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
 #endif
                 }
             });

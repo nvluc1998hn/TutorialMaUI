@@ -2,6 +2,7 @@
 using Syncfusion.Licensing;
 using System.Globalization;
 using TutorialMaUI.Extensions;
+using TutorialMaUI.Views.Map;
 
 namespace TutorialMaUI
 {
@@ -22,7 +23,7 @@ namespace TutorialMaUI
 
             var navigationPage = new NavigationPage(new Pages.StackLayOutDemo(_serviceCommunication));
 
-            MainPage = navigationPage;
+            MainPage = new NavigationPage(new PinPageMap());
 
         }
     }

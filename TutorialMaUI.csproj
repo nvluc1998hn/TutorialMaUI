@@ -56,13 +56,46 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\car\blackcar.png" />
+	  <None Remove="Resources\Images\car\bluecar.png" />
+	  <None Remove="Resources\Images\car\grayblue.png" />
+	  <None Remove="Resources\Images\car\graycar.png" />
+	  <None Remove="Resources\Images\car\greencar.png" />
+	  <None Remove="Resources\Images\car\orangecar.png" />
+	  <None Remove="Resources\Images\car\redcar.png" />
+	  <None Remove="Resources\Images\car\stopcar.png" />
+	  <None Remove="Resources\Images\car\warncar.png" />
+	  <None Remove="Resources\Images\car\yellowcar.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\car\blackcar.png" />
+	  <MauiImage Include="Resources\Images\car\bluecar.png" />
+	  <MauiImage Include="Resources\Images\car\grayblue.png" />
+	  <MauiImage Include="Resources\Images\car\graycar.png" />
+	  <MauiImage Include="Resources\Images\car\greencar.png" />
+	  <MauiImage Include="Resources\Images\car\orangecar.png" />
+	  <MauiImage Include="Resources\Images\car\redcar.png" />
+	  <MauiImage Include="Resources\Images\car\stopcar.png" />
+	  <MauiImage Include="Resources\Images\car\warncar.png" />
+	  <MauiImage Include="Resources\Images\car\yellowcar.png" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+		<PackageReference Include="Xamarin.GooglePlayServices.Auth">
+			<Version>120.7.0.1</Version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="FluentValidation" Version="11.10.0" />
 		<PackageReference Include="LocalizationResourceManager.Maui" Version="1.2.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.92" />
 		<PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.91" />
 		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="27.1.51" />
 		<PackageReference Include="Syncfusion.Maui.Inputs" Version="27.1.51" />
@@ -70,6 +103,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Common.Library\Common.Library.csproj" />
+		<ProjectReference Include="..\Map\Maui.GoogleMaps\Maui.GoogleMaps.csproj" />
 		<ProjectReference Include="..\Plugin.ValidationRules\Plugin.ValidationRules.csproj" />
 		<ProjectReference Include="..\TutorialMAUI.Entity\TutorialMAUI.Entity.csproj" />
 	</ItemGroup>
@@ -129,6 +163,12 @@
 		<MauiXaml Update="Views\LoginView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Views\Map\BindingPinView2.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Map\PinPageMap.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\TabbedPageTest.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -138,6 +178,15 @@
 		<MauiXaml Update="Views\UserListDetail.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+	  <PackageReference Include="Xamarin.AndroidX.Collection">
+	    <Version>1.4.4</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.Collection.Ktx">
+	    <Version>1.4.4</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 </Project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TutorialMaUI.Views.Map.PinPageMap"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Maui.GoogleMaps;assembly=Maui.GoogleMaps"
+    Title="Giám sát xe">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" VerticalOptions="Fill">
+            <maps:Map x:Name="map" Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
