@@ -3,11 +3,51 @@
     x:Class="TutorialMaUI.Views.Map.PinPageMap"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:maps="clr-namespace:Maui.GoogleMaps;assembly=Maui.GoogleMaps"
+    xmlns:behavior="clr-namespace:Maui.GoogleMaps.Behaviors;assembly=Maui.GoogleMaps"
+    xmlns:maps="clr-namespace:Maui.GoogleMaps.Clustering;assembly=Maui.GoogleMaps.Clustering"
     Title="Giám sát xe">
-    <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*" VerticalOptions="Fill">
-            <maps:Map x:Name="map" Grid.Row="1" />
-        </Grid>
-    </ContentPage.Content>
+    <Grid>
+        <!--  Bản đồ  -->
+        <maps:ClusteredMap x:Name="map" ClusterClicked="Map_ClusterClicked">
+            <maps:ClusteredMap.Behaviors>
+                <behavior:AnimateCameraBehavior Request="{Binding AnimateCameraRequest}" />
+            </maps:ClusteredMap.Behaviors>
+        </maps:ClusteredMap>
+
+        <!--  Entry Tìm kiếm nổi trên bản đồ  -->
+        <AbsoluteLayout>
+            <Border
+                Margin="25,15,15,0"
+                Padding="0"
+                BackgroundColor="White"
+                HeightRequest="40"
+                Stroke="#0959a0"
+                StrokeShape="RoundRectangle 20"
+                StrokeThickness="1.5">
+                <Entry
+                    Margin="35,0"
+                    ClearButtonVisibility="WhileEditing"
+                    HorizontalOptions="StartAndExpand"
+                    Placeholder="Tìm kiếm theo phương tiện"
+                    Text="{Binding VehiclePlate}"
+                    TextColor="Black"
+                    VerticalOptions="StartAndExpand" />
+            </Border>
+            <Image
+                Margin="20,15,0,0"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Source="search.svg"
+                VerticalOptions="Start"
+                WidthRequest="40">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="EnterSearch" />
+                </Image.GestureRecognizers>
+            </Image>
+        </AbsoluteLayout>
+
+
+    </Grid>
+
+
 </ContentPage>

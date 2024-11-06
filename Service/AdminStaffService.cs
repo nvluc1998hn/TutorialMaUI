@@ -1,5 +1,8 @@
 ﻿using Common.Library.Helper;
 using Common.Library.RestAPI;
+using TutorialMaUI.ModelApi.CrossUrl;
+using TutorialMaUI.ModelApi.Request;
+using TutorialMaUI.ModelApi.Respond;
 using TutorialMaUI.Resources.Language;
 using TutorialMaUI.Service.Interface;
 using TutorialMaUI.ViewModel.Respond;
@@ -26,21 +29,59 @@ namespace TutorialMaUI.Service
             _serviceCommunication = serviceCommunication;
         }
 
+        // Fake data từ API V3 lấy danh sách lộ trình vẽ demo polyline tí 
+        public async Task<RouteDataViewModel> GetListRoute(string fromDate, string toDate)
+        {
+            var result = new RouteDataViewModel();
+            try
+            {
+                string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZjAzZWRlNi01OGVjLTRhYTMtODc4OS1iNTZjYmZmOGI5Y2EiLCJpYXQiOiIxNzMwODI1OTkzNzE5Iiwic3ViIjoiYmYwODNmZGQtZDQ2YS00MzVkLWEzOTQtMWI3YjQxOTBiOTgyIiwiWG5Db2RlIjoiOTUwIiwiQ3VzdG9tZXJDb2RlIjoiIiwiTG9naW5Vc2VySWQiOiJlNjZlMzAwZS1iNjQ0LTQxYjAtODEyNC1jZTk5NTQ0MzRjNmYiLCJleHAiOjE3MzA4MTUxOTMsImlzcyI6IjE5Mi4xNjguNDUuNDgifQ.GqI8iPIQ7Prj0TnMNx2CPMuGVS9TU8h8iJPBjmwnT_g";
 
+                var vehicleData = new VehicleData
+                {
+                    StartTime = DateTime.Parse(fromDate),
+                    EndTime = DateTime.Parse(toDate),
+                    VehicleId = 442323,
+                    VehiclePlate = "43C01338_C",
+                    IsEnableAcc = false,
+                    GetAddress = true,
+                    LimitSpeedByPNC = true,
+                    LimitByGeocoding = true,
+                    SpeedAllow = 60,
+                    UseSpeakerSoundModule = false,
+                    ViewDriverInfo = true,
+                    VehicleConfigs = new VehicleConfigs
+                    {
+                        VMin = 11,
+                        MaxVelocityBlue = 80,
+                        MaxVelocityRed = 100,
+                        MinuteStopLongTime = 150,
+                        TimeLossGSM = 150,
+                        MinTimeLossGPS = 5,
+                        MaxTimeLossGPS = 150
+                    }
+                };
+                result = await _serviceCommunication.PostAsync<RouteDataViewModel>("AdminStaffService", CrossUrlLink.UrlRouteV3, vehicleData, token);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Warning($"{GetType().Name} {ex.Message}");
+            }
+            return result;
+        }
 
         public async Task<List<AdminStaffResponse>> GetListStaffByCondition(string condition)
         {
             var result = new List<AdminStaffResponse>();
             try
             {
-                var url = "http://10.1.11.107:8069/admin-staff/getlist";
 
                 var dataBody = new
                 {
                     keyword = condition,
                 };
 
-                result = await _serviceCommunication.PostAsync<List<AdminStaffResponse>>("AdminStaffService", url, dataBody);
+                result = await _serviceCommunication.PostAsync<List<AdminStaffResponse>>("AdminStaffService", CrossUrlLink.AdminStaffList, dataBody);
 
                 if (result?.Count > 0)
                 {
@@ -67,9 +108,8 @@ namespace TutorialMaUI.Service
             bool isSuccess = false;
             try
             {
-                var url = "http://10.1.11.107:8069/admin-staff/insert";
 
-                isSuccess = await _serviceCommunication.PostAsync<bool>("AdminStaffService", url, dataInsert);
+                isSuccess = await _serviceCommunication.PostAsync<bool>("AdminStaffService", CrossUrlLink.AdminStaffInsert, dataInsert);
             }
             catch (Exception ex)
             {
@@ -83,9 +123,7 @@ namespace TutorialMaUI.Service
             bool isSuccess = false;
             try
             {
-                var url = "http://10.1.11.107:8069/admin-staff/update";
-
-                isSuccess = await _serviceCommunication.PostAsync<bool>("AdminStaffService", url, dataUpdate);
+                isSuccess = await _serviceCommunication.PostAsync<bool>("AdminStaffService", CrossUrlLink.AdminStaffUpdate, dataUpdate);
             }
             catch (Exception ex)
             {
@@ -99,9 +137,7 @@ namespace TutorialMaUI.Service
             bool isSuccess = false;
             try
             {
-                var url = $"http://10.1.11.107:8069/admin-staff/staffId/{StaffId}";
-
-                await _serviceCommunication.GetAsync<bool>("AdminStaffService", url);
+                await _serviceCommunication.GetAsync<bool>("AdminStaffService", CrossUrlLink.AdminStaffDelete, [StaffId]);
 
                 isSuccess = true;
             }

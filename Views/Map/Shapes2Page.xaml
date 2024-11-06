@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TutorialMaUI.Views.Map.Shapes2Page"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Maui.GoogleMaps;assembly=Maui.GoogleMaps"
+    Title="Shapes2Page">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" VerticalOptions="Fill">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalTextAlignment="End"
+                    Text="Move to Front:"
+                    VerticalTextAlignment="Center" />
+
+                <Picker
+                    x:Name="pickerZIndex"
+                    Grid.Row="0"
+                    Grid.Column="1" />
+
+            </Grid>
+            <maps:Map x:Name="map" VerticalOptions="FillAndExpand" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

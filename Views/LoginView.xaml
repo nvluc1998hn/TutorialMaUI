@@ -31,7 +31,7 @@
         <Image
             Grid.Row="0"
             Aspect="AspectFill"
-            HeightRequest="240"
+            HeightRequest="280"
             HorizontalOptions="Fill"
             Source="Resources/Images/education.jpeg"
             VerticalOptions="Fill" />
@@ -192,11 +192,10 @@
             <Frame
                 Padding="0"
                 BackgroundColor="Transparent"
-                BorderColor="Blue"
                 CornerRadius="25"
                 HasShadow="True"
                 HeightRequest="40"
-                WidthRequest="320">
+                HorizontalOptions="FillAndExpand">
                 <Button
                     x:Name="ButtonSubmit"
                     Padding="10,5"

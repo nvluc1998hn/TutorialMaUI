@@ -6,14 +6,18 @@
     RowDefinitions="Auto,Auto">
 
 
-    <Image Grid.Row="1" HeightRequest="20" Source="{Binding ImageUrl}" />
+    <Image
+        Grid.Row="1"
+        HeightRequest="20"
+        Source="{Binding ImageUrl}" />
 
     <Label
         Grid.Row="0"
         BackgroundColor="Green"
-        FontSize="8"
+        FontSize="14"
         HorizontalTextAlignment="Center"
-        Text="{Binding Display}"
+        IsVisible="{Binding ShowLabel}"
+        Text="{Binding Title}"
         TextColor="White"
         VerticalOptions="Center" />
 

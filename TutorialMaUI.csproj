@@ -58,6 +58,8 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\car\blackcar.png" />
 	  <None Remove="Resources\Images\car\bluecar.png" />
+	  <None Remove="Resources\Images\car\caretdown.png" />
+	  <None Remove="Resources\Images\car\caretup.png" />
 	  <None Remove="Resources\Images\car\grayblue.png" />
 	  <None Remove="Resources\Images\car\graycar.png" />
 	  <None Remove="Resources\Images\car\greencar.png" />
@@ -71,6 +73,8 @@
 	<ItemGroup>
 	  <MauiImage Include="Resources\Images\car\blackcar.png" />
 	  <MauiImage Include="Resources\Images\car\bluecar.png" />
+	  <MauiImage Include="Resources\Images\car\caretdown.png" />
+	  <MauiImage Include="Resources\Images\car\caretup.png" />
 	  <MauiImage Include="Resources\Images\car\grayblue.png" />
 	  <MauiImage Include="Resources\Images\car\graycar.png" />
 	  <MauiImage Include="Resources\Images\car\greencar.png" />
@@ -104,6 +108,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Common.Library\Common.Library.csproj" />
 		<ProjectReference Include="..\Map\Maui.GoogleMaps\Maui.GoogleMaps.csproj" />
+		<ProjectReference Include="..\Maui.GoogleMaps.Clustering\Maui.GoogleMaps.Clustering.csproj" />
 		<ProjectReference Include="..\Plugin.ValidationRules\Plugin.ValidationRules.csproj" />
 		<ProjectReference Include="..\TutorialMAUI.Entity\TutorialMAUI.Entity.csproj" />
 	</ItemGroup>
@@ -167,6 +172,12 @@
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Views\Map\PinPageMap.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Map\Route.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Map\Shapes2Page.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Views\TabbedPageTest.xaml">

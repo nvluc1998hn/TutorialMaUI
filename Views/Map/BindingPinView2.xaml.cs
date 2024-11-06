@@ -1,24 +1,21 @@
+using TutorialMaUI.Models;
+
 namespace TutorialMaUI.Views.Map;
 
 public partial class BindingPinView2 : Grid
 {
-    private string _display;
-    private string _imageUrl;
+    private VehicleInfoOnMap _infoVehicleOnMap;
 
-    public BindingPinView2(string display, string imageUrl)
+    public BindingPinView2(VehicleInfoOnMap infoVehicleOnMap)
     {
+        _infoVehicleOnMap = infoVehicleOnMap;
         InitializeComponent();
-        _display = display;
-        _imageUrl = imageUrl;
-        BindingContext = this;
+
+        BindingContext = _infoVehicleOnMap;
     }
-    public string Display
+    public VehicleInfoOnMap InfoVehicleOnMap
     {
-        get { return _display; }
+        get { return _infoVehicleOnMap; }
     }
 
-    public string ImageUrl
-    {
-        get { return _imageUrl; }
-    }
 }

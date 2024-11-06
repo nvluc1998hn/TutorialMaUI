@@ -1,4 +1,5 @@
-﻿using TutorialMaUI.ViewModel.Respond;
+﻿using TutorialMaUI.ModelApi.Respond;
+using TutorialMaUI.ViewModel.Respond;
 
 namespace TutorialMaUI.Service.Interface
 {
@@ -11,5 +12,8 @@ namespace TutorialMaUI.Service.Interface
         Task<bool> UpdateData(AdminStaffResponse dataUpdate);
 
         Task<bool> DeleteData(int StaffId);
+
+        Task<RouteDataViewModel> GetListRoute(string fromDate, string toDate);
+
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TutorialMaUI.Views.Map.Route"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Maui.GoogleMaps;assembly=Maui.GoogleMaps"
+    Title="Route">
+    <AbsoluteLayout>
+
+        <maps:Map
+            x:Name="map"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            VerticalOptions="FillAndExpand" />
+
+        <Border
+            Margin="5,15,15,5"
+            Padding="0"
+            BackgroundColor="White"
+            HeightRequest="50"
+            Stroke="#0959a0"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="1.5">
+
+            <!--  Dùng StackLayout để sắp xếp TimePicker và DatePicker theo cột dọc  -->
+            <StackLayout Padding="10,5" Orientation="Horizontal">
+                <TimePicker Time="{Binding StartTime}" />
+
+                <DatePicker Date="{Binding SelectedDate}" Format="dd/MM/yyyy" />
+
+                <TimePicker Time="{Binding EndTime}" />
+
+                <DatePicker Date="{Binding SelectedDateTo}" Format="dd/MM/yyyy" />
+
+                <Image
+                    Margin="20,0,0,0"
+                    HeightRequest="35"
+                    HorizontalOptions="Start"
+                    Source="search.svg"
+                    VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EnterSearch" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </StackLayout>
+
+        </Border>
+
+    </AbsoluteLayout>
+</ContentPage>

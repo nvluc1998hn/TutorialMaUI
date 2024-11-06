@@ -1,11 +1,13 @@
 ﻿using Common.Library.RestAPI;
 using CommunityToolkit.Maui;
+using Maui.GoogleMaps.Clustering.Hosting;
 using Maui.GoogleMaps.Hosting;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 using TutorialMaUI.Extensions;
 using TutorialMaUI.Service;
 using TutorialMaUI.Service.Interface;
+
 
 namespace TutorialMaUI
 {
@@ -76,11 +78,31 @@ namespace TutorialMaUI
                 }
             });
 
+            Microsoft.Maui.Handlers.DatePickerHandler.Mapper.AppendToMapping("MyCustomization", (handler, view) =>
+            {
+
+#if ANDROID
+                handler.PlatformView.BackgroundTintList =
+    Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+#endif
+            });
+
+            Microsoft.Maui.Handlers.TimePickerHandler.Mapper.AppendToMapping("MyCustomization2", (handler, view) =>
+            {
+
+#if ANDROID
+                handler.PlatformView.BackgroundTintList =
+    Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+#endif
+            });
+
+
+
             builder.Services.AddSingleton<IServiceCommunication, ServiceCommunication>();
             builder.Services.AddSingleton<IAdminStaffService, AdminStaffService>();
 
             builder.Services.AddHttpClient();
-
+            builder.UseGoogleMapsClustering();
 
             return builder.Build();
         }

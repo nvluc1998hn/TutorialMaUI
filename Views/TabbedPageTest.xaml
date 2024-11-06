@@ -4,10 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:map="clr-namespace:TutorialMaUI.Views.Map"
     xmlns:p="clr-namespace:TutorialMaUI.Views"
-    Title="TabbedPageTest"
-    android:TabbedPage.ToolbarPlacement="Bottom">
-    <p:ListEmployee IconImageSource="homeregular24.png" />
-    <p:InfoUser IconImageSource="usericon.png" />
+    Title=""
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    android:TabbedPage.IsSwipePagingEnabled="False">
+    <!--<p:ListEmployee Title="Danh sách nhân viên" IconImageSource="homeregular24.png" />-->
+    <p:InfoUser Title="Thông tin người dùng" IconImageSource="usericon.png" />
+    <map:PinPageMap Title="Giám sát" IconImageSource="locationmap.png" />
+    <map:Route Title="Lộ trình" IconImageSource="locationmap.png" />
 </TabbedPage>
 
