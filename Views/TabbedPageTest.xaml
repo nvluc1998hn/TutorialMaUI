@@ -9,7 +9,7 @@
     Title=""
     android:TabbedPage.ToolbarPlacement="Bottom"
     android:TabbedPage.IsSwipePagingEnabled="False">
-    <!--<p:ListEmployee Title="Danh sách nhân viên" IconImageSource="homeregular24.png" />-->
+    <p:ListEmployee Title="Danh sách nhân viên" IconImageSource="homeregular24.png" />
     <p:InfoUser Title="Thông tin người dùng" IconImageSource="usericon.png" />
     <map:PinPageMap Title="Giám sát" IconImageSource="locationmap.png" />
     <map:Route Title="Lộ trình" IconImageSource="locationmap.png" />

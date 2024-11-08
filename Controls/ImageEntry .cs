@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-
-namespace TutorialMAUI.Controls
+﻿namespace TutorialMAUI.Controls
 {
     public class ImageEntry : Entry
     {

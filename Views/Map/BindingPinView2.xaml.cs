@@ -1,7 +1,12 @@
-using TutorialMaUI.Models;
+﻿using TutorialMaUI.Models;
 
 namespace TutorialMaUI.Views.Map;
 
+/// <summary>
+/// Template để hiện thị thông tin của Pin
+/// </summary>
+/// Author: lucnv
+/// Created: 08/11/2024
 public partial class BindingPinView2 : Grid
 {
     private VehicleInfoOnMap _infoVehicleOnMap;

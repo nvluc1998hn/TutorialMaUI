@@ -35,7 +35,8 @@ namespace TutorialMaUI.Service
             var result = new RouteDataViewModel();
             try
             {
-                string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZjAzZWRlNi01OGVjLTRhYTMtODc4OS1iNTZjYmZmOGI5Y2EiLCJpYXQiOiIxNzMwODI1OTkzNzE5Iiwic3ViIjoiYmYwODNmZGQtZDQ2YS00MzVkLWEzOTQtMWI3YjQxOTBiOTgyIiwiWG5Db2RlIjoiOTUwIiwiQ3VzdG9tZXJDb2RlIjoiIiwiTG9naW5Vc2VySWQiOiJlNjZlMzAwZS1iNjQ0LTQxYjAtODEyNC1jZTk5NTQ0MzRjNmYiLCJleHAiOjE3MzA4MTUxOTMsImlzcyI6IjE5Mi4xNjguNDUuNDgifQ.GqI8iPIQ7Prj0TnMNx2CPMuGVS9TU8h8iJPBjmwnT_g";
+                // Token lấy từ login của xn950 bản test
+                string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmZWUzMmQzMC01NWExLTQ1ODMtYTY2Ny00ZDg3YjZiMDg3MWEiLCJpYXQiOiIxNzMwOTk2NTY4NDQwIiwic3ViIjoiYmYwODNmZGQtZDQ2YS00MzVkLWEzOTQtMWI3YjQxOTBiOTgyIiwiWG5Db2RlIjoiOTUwIiwiQ3VzdG9tZXJDb2RlIjoiIiwiTG9naW5Vc2VySWQiOiJlNjZlMzAwZS1iNjQ0LTQxYjAtODEyNC1jZTk5NTQ0MzRjNmYiLCJleHAiOjE3MzA5ODU3NjgsImlzcyI6IjE5Mi4xNjguNDUuNDgifQ.yNmqdxW70gfk6DZQqY8bIbNePt2UxSynLA5rfj3zhZA";
 
                 var vehicleData = new VehicleData
                 {

@@ -22,9 +22,9 @@ namespace TutorialMaUI.ViewModel
         public List<AdminStaffResponse> listAll = new();
 
 
-        public int _totalRecords = 100;  // Total available records from the server
-        public readonly int _itemsPerPage = 15;   // Load 15 records per page
-        public int _currentPage = 0;     // Current page number
+        public int _totalRecords = 100;  // Tổng số bản ghi
+        public readonly int _itemsPerPage = 15;   // Số bản ghi 1 trang
+        public int _currentPage = 0;     // Trang hiện tại
 
         public ICommand LoadMoreItemsCommand { get; private set; }
         public ICommand GetDetailDataCommand { get; private set; }

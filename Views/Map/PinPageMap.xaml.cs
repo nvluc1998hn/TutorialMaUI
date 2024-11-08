@@ -7,6 +7,13 @@ using TutorialMaUI.Models;
 
 namespace TutorialMaUI.Views.Map;
 
+/// <summary>
+///  Pin trên map
+/// </summary>
+/// Author: lucnv
+/// Created: 08/11/2024
+/// Modified: date - user - description
+/// 
 public partial class PinPageMap : ContentPage, INotifyPropertyChanged
 {
     private const double BaseLatitude = 20.976237;
@@ -45,6 +52,8 @@ public partial class PinPageMap : ContentPage, INotifyPropertyChanged
     public void OnPropertyChanged([CallerMemberName] string name = "") =>
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
+
+    // Tạo n điểm tự động random theo vị trí
     private void GenerateRandomPins()
     {
         var random = new Random();
@@ -102,6 +111,7 @@ public partial class PinPageMap : ContentPage, INotifyPropertyChanged
         var findPoin = map.Pins.Where(c => c.Label == VehiclePlate)?.FirstOrDefault();
         if (findPoin != null)
         {
+            // Span to đến điểm đó
             AnimateCameraRequest.AnimateCamera(CameraUpdateFactory.NewPositionZoom(new Position(findPoin.Position.Latitude, findPoin.Position.Longitude), map.CameraPosition.Zoom + 2));
         }
         else
