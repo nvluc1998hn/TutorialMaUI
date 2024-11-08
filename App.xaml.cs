@@ -20,7 +20,7 @@ namespace TutorialMaUI
 
             _adminStaffService = adminStaffService;
 
-            SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1NpR2FGfV5ycEVHYVZRRHxaSk0DNHVRdkdnWH9fdXZWRmBZWUBxX0c=");
+            SyncfusionLicenseProvider.RegisterLicense("");
 
             Translator.Instance.CultureInfo = new CultureInfo("");
 

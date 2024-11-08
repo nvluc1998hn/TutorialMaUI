@@ -105,6 +105,8 @@ namespace TutorialMaUI.ViewModel
 
         public async void DeleteData(object obj)
         {
+            await Task.Delay(0);
+
             if (obj is AdminStaffResponse data)
             {
                 var textNotifi = $"Bạn có chắc chắn muốn xóa lái xe {data.StaffName} ?";
